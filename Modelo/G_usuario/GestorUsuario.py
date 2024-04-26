@@ -35,7 +35,4 @@ class GestorUsuario:
     '''
 
     def recibir_datos_inicio_sesion(self, correo, contrasena):
-        if self.autenticacion.validacion_credenciales(correo, contrasena):
-            self.session.set_usuario(self.tabla_usuarios.obtener_usuario(correo))
-            return True
-        return False
+        return self.autenticacion.validacion_credenciales(correo, contrasena)

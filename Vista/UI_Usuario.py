@@ -23,15 +23,12 @@ class UI_Usuario:
     Metodo despliegua UI para iniciar sesion
     '''
     def iniciar_sesion(self):
-        inicio_sesion = False
         while True:
             print("Iniciar sesión")
             correo, contraseña = self.ingreso_datos_inicio_sesion()
-            self.usuario = self.envia_datos_inicio_sesion(correo, contraseña)
-            if self.usuario != None:
-                self.tipo_usuario = self.gestor_usuario.tipo_usuario(self.usuario)
+            respuesta_validacion = self.envia_datos_inicio_sesion(correo, contraseña)
+            if respuesta_validacion:
                 print("Inicio de sesión correcto")
-                inicio_sesion = True
                 break
             else:
                 print("Correo o contraseña incorrectos")
@@ -39,7 +36,6 @@ class UI_Usuario:
                 respuesta = input("S/N: ")
                 if respuesta == "N":
                     break
-        return inicio_sesion
     
     '''
     Metodo que recibe los datos de registro
