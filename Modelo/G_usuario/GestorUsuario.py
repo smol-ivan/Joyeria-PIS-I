@@ -5,9 +5,17 @@ from .Administrador import Administrador
 
 class GestorUsuario:
     def __init__(self):
+        self.id_count = 0
         self.tabla_usuarios = TablaUsuarios()
+        self.inicializar_usuarios()
         self.autenticacion = Autenticacion(self.tabla_usuarios)
-        id_count = 0
+
+    '''
+    Metodo que agrega un id a un usuario
+    '''
+    def set_id(self, usuario):
+        self.id_count += 1
+        usuario.set_id(self.id_count)
 
     '''
     Metodo que inicializa la lista de usuarios
@@ -21,16 +29,10 @@ class GestorUsuario:
         self.tabla_usuarios.registrar_usuario(usuario2)
 
     '''
-    Metodo que agrega un id a un usuario
+    Metodo que recibe los datos de inicio de sesion y manda a la clase Autenticacion para validarlos
     '''
-    def set_id(self, usuario):
-        self.id_count += 1
-        usuario.set_id(self.id_count)
 
-    '''
-    Metodo que manda datos a la clase Autenticacion para solicitar la validacion de las credenciales
-    '''
-    def datos_iniciar_sesion(self, correo, contrasena):
+    def recibir_datos_inicio_sesion(self, correo, contrasena):
         return self.autenticacion.validacion_credenciales(correo, contrasena)
     
     '''
