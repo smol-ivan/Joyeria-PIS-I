@@ -3,7 +3,7 @@ from .UI_DatosEnvio import UI_DatosEnvio
 from .UI_Pago import UI_Pago
 from .UI_Catalogo import UI_Catalogo
 from .UI_Inventario import UI_Inventario
-from Modelo.Session import Session
+from Modelo.G_usuario.Session import Session
 
 class UI_Principal:
     def __init__(self):
@@ -30,7 +30,8 @@ class UI_Principal:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                self.usuario.iniciar_sesion()
+                if self.usuario.iniciar_sesion():
+                    self.desplegar_menu_usuario()
             elif opcion == "2":
                 # self.usuario.registrarse()
                 print("No implementado")
@@ -43,6 +44,72 @@ class UI_Principal:
                 break
             else:
                 print("Opción no válida")
+
+    '''
+    Metodo para seleccionar que tipo de menu desplegar
+    '''
+    def desplegar_menu_usuario(self):
+        if self.session.es_administrador():
+            self.menu_administrador()
+        else:
+            self.menu_miembro()
+
+    '''
+    Metodo que despliega menu principal para administradores
+    '''
+    def menu_administrador(self):
+        while True:
+            print("Menú de administrador")
+            print("1. Inventario")
+            print("2. Usuario")
+            print("3. Ganancia")
+            print("4. Salir")
+            opcion = input("Seleccione una opción: ")
+            if opcion == "1":
+                self.inventario.menu_inventario()
+            elif opcion == "2":
+                self.usuario.menu_usuario()
+            elif opcion == "3":
+                print("No implementado")
+                print("Regresando al menú principal")
+            elif opcion == "4":
+                exit()
+            else:
+                print("Opción no válida")
+
+    '''
+    Metodo que despliegua menu principal para miembros
+    '''
+    def menu_miembro(self):
+        while True:
+            print("Menú de miembro")
+            print("1. Catálogo")
+            print("2. Datos de envío")
+            print("3. Pago")
+            print("4. Cuenta")
+            print("5. Carrito")
+            print("6. Comprar")
+            print("7. Salir")
+            opcion = input("Seleccione una opción: ")
+            if opcion == "1":
+                self.catalogo.mostrar_catalogo()
+            elif opcion == "2":
+                self.datos_envio.menu_datos_envio()
+            elif opcion == "3":
+                self.pago.menu_pago()
+            elif opcion == "4":
+                self.usuario.menu_usuario()
+            elif opcion == "5":
+                print("No implementado")
+                print("Regresando al menú principal")
+            elif opcion == "6":
+                print("No implementado")
+                print("Regresando al menú principal")
+            elif opcion == "7":
+                exit()
+            else:
+                print("Opción no válida")
+
     
     """
     Trabajo Mariana

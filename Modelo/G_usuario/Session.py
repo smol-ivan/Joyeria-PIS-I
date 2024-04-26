@@ -1,4 +1,4 @@
-from Modelo.G_usuario.Administrador import Administrador
+from .Administrador import Administrador
 
 class Session:
     _instance = None

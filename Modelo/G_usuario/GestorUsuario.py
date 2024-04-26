@@ -2,6 +2,7 @@ from .Autenticacion import Autenticacion
 from .TablaUsuarios import TablaUsuarios
 from .Miembro import Miembro
 from .Administrador import Administrador
+from .Session import Session
 
 class GestorUsuario:
     def __init__(self):
@@ -9,6 +10,7 @@ class GestorUsuario:
         self.tabla_usuarios = TablaUsuarios()
         self.inicializar_usuarios()
         self.autenticacion = Autenticacion(self.tabla_usuarios)
+        self.session = Session()
 
     '''
     Metodo que agrega un id a un usuario
@@ -33,13 +35,7 @@ class GestorUsuario:
     '''
 
     def recibir_datos_inicio_sesion(self, correo, contrasena):
-        return self.autenticacion.validacion_credenciales(correo, contrasena)
-    
-    '''
-    Metodo que regresa el tipo de usuario
-    '''
-    def tipo_usuario(self, usuario):
-        if isinstance(usuario, Miembro):
-            return "Miembro"
-        elif isinstance(usuario, Administrador):
-            return "Administrador"
+        if self.autenticacion.validacion_credenciales(correo, contrasena):
+            self.session.set_usuario(self.tabla_usuarios.obtener_usuario(correo))
+            return True
+        return False
