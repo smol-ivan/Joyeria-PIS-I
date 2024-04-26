@@ -6,7 +6,8 @@ class Autenticacion:
         self.session = Session()
 
     def validacion_credenciales(self, correo, contrasena):
-        for usuario in self.tabla_usuarios.obtener_usuarios():
-            if usuario.get_correo() == correo and usuario.get_contrasena() == contrasena:
-                return True
+        usuario = self.tabla_usuarios.obtener_usuario(correo, contrasena)
+        if usuario:
+            self.session.iniciar_sesion(usuario)
+            return True
         return False

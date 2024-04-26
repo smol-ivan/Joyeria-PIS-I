@@ -34,7 +34,7 @@ class UI_Usuario:
                 print("Correo o contraseña incorrectos")
                 print("¿Desea intentar de nuevo?")
                 respuesta = input("S/N: ")
-                if respuesta == "N":
+                if respuesta.lower == "n":
                     break
     
     '''

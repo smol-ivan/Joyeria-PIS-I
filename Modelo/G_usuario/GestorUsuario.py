@@ -13,20 +13,20 @@ class GestorUsuario:
         self.session = Session()
 
     '''
-    Metodo que agrega un id a un usuario
+    Metodo que actualiza el contador de id
     '''
-    def set_id(self, usuario):
+    def set_id(self):
         self.id_count += 1
-        usuario.set_id(self.id_count)
+        return self.id_count
 
     '''
     Metodo que inicializa la lista de usuarios
     '''
     def inicializar_usuarios(self):
-        usuario1 = Miembro("Juan", "correo1@ejemplo", "1234")
-        self.set_id(usuario1)
-        usuario2 = Administrador("Pedro", "correo2@ejemplo", "1234")
-        self.set_id(usuario2)
+        id_usuario = self.set_id()
+        usuario1 = Miembro("Juan", "correo1@ejemplo", "1234", id_usuario)
+        id_usuario = self.set_id()
+        usuario2 = Administrador("Pedro", "correo2@ejemplo", "1234", id_usuario)
         self.tabla_usuarios.registrar_usuario(usuario1)
         self.tabla_usuarios.registrar_usuario(usuario2)
 

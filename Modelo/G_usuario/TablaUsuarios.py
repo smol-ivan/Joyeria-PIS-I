@@ -23,5 +23,5 @@ class TablaUsuarios:
     '''
     def obtener_usuario(self, correo, contrasena):
         for usuario in self.usuarios:
-            if usuario.get_correo() == correo & usuario.get_contrasena() == contrasena:
+            if usuario.get_correo() == correo and usuario.get_contrasena() == contrasena:
                 return usuario

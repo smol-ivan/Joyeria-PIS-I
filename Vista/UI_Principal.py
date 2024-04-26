@@ -50,6 +50,9 @@ class UI_Principal:
     Metodo para seleccionar que tipo de menu desplegar
     '''
     def desplegar_menu_usuario(self):
+        if not self.session.esta_autenticado():
+            print("No se ha iniciado sesión")
+            return
         if self.session.es_administrador():
             self.menu_administrador()
         else:

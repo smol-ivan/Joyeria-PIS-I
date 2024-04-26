@@ -7,5 +7,5 @@ class Controller_Usuario:
     '''
     Metodo que recibe los datos de inicio de sesion cuando en la UI se presiona el boton de iniciar sesion
     '''
-    def enviar_datos_inicio_sesion(self, usuario, contrasena):
+    def enviar_datos_iniciar_sesion(self, usuario, contrasena):
         return self.gestor_usuario.recibir_datos_inicio_sesion(usuario, contrasena)
