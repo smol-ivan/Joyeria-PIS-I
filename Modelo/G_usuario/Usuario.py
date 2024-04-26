@@ -1,8 +1,9 @@
 class Usuario:
-    def __init__(self, nombre, correo, contrasena) -> None:
+    def __init__(self, nombre, correo, contrasena, id_usuario) -> None:
         self.nombre = nombre
         self.correo = correo
         self.contrasena = contrasena
+        self.id_usuario = id_usuario
 
     '''
     Metodos getter y setter
@@ -18,4 +19,13 @@ class Usuario:
     
     def set_correo(self, correo):
         self.correo = correo
+
+    def get_contrasena(self):
+        return self.contrasena
+    
+    def set_contrasena(self, contrasena):
+        self.contrasena = contrasena
+
+    def get_id_usuario(self):
+        return self.id_usuario
         
