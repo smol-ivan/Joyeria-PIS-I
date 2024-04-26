@@ -30,8 +30,8 @@ class UI_Principal:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                if self.usuario.iniciar_sesion():
-                    self.desplegar_menu_usuario()
+                self.usuario.iniciar_sesion()
+                self.desplegar_menu_usuario()
             elif opcion == "2":
                 # self.usuario.registrarse()
                 print("No implementado")
@@ -41,7 +41,8 @@ class UI_Principal:
                 print("No implementado")
                 print("Regresando al menú principal")
             elif opcion == "4":
-                break
+                print("Saliendo de la tienda en línea")
+                exit()
             else:
                 print("Opción no válida")
 
