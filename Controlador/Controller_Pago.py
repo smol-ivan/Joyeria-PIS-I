@@ -1,3 +1,3 @@
-class UI_Pago:
+class Controller_Pago:
     def __init__(self) -> None:
         pass

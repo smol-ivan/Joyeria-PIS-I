@@ -1,3 +1,3 @@
-class UI_Pago:
+class UI_DatosEnvio:
     def __init__(self) -> None:
         pass
