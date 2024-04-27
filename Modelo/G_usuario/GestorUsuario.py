@@ -36,3 +36,14 @@ class GestorUsuario:
 
     def recibir_datos_inicio_sesion(self, correo, contrasena):
         return self.autenticacion.validacion_credenciales(correo, contrasena)
+    
+    '''
+    Metodo que recibe los datos de registro de usuario y manda a la clase Autenticacion para validarlos
+    '''
+    def recibir_datos_registro_usuario(self, nombre, correo, contrasena):
+        if self.tabla_usuarios.obtener_usuario(correo, contrasena):
+            return False
+        id_usuario = self.set_id()
+        usuario = Miembro(nombre, correo, contrasena, id_usuario)
+        self.tabla_usuarios.registrar_usuario(usuario)
+        return True

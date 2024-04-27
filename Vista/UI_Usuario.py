@@ -34,8 +34,14 @@ class UI_Usuario:
                 print("Correo o contraseña incorrectos")
                 print("¿Desea intentar de nuevo?")
                 respuesta = input("S/N: ")
-                if respuesta.lower == "n":
+                if respuesta.lower() == "n":
                     break
+
+    '''
+    Metodo que envia los datos de registro al gestor de usuario
+    '''
+    def envia_datos_registro(self, nombre, correo, contraseña):
+        return self.controlador_usuario.enviar_datos_registro_usuario(nombre, correo, contraseña)
     
     '''
     Metodo que recibe los datos de registro
@@ -46,3 +52,21 @@ class UI_Usuario:
         contraseña = input("Contraseña: ")
         return nombre, correo, contraseña
         
+    '''
+    Metodo que despliega UI para registrarse
+    '''
+    def registrarse(self):
+        while True:
+            print("Registrarse")
+            nombre, correo, contraseña = self.ingreso_datos_registro()
+            respuesta_validacion = self.envia_datos_registro(nombre, correo, contraseña)
+            if respuesta_validacion:
+                print("Registro exitoso")
+                print("Por favor inicie sesión")
+                break
+            else:
+                print("Correo ya registrado")
+                print("¿Desea intentar de nuevo?")
+                respuesta = input("S/N: ")
+                if respuesta.lower() == "n":
+                    break
