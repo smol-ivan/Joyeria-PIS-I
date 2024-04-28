@@ -1,3 +1,4 @@
+from Modelo.G_usuario.Miembro import Miembro
 from .Session import Session
 
 class TablaUsuarios:
@@ -56,4 +57,21 @@ class TablaUsuarios:
         usuario = self.obtener_usuario_por_id(id_usuario)
         self.usuarios.remove(usuario)
         self.session.cerrar_sesion()
+        return True
+    
+    '''
+    Metodo que regresa un arreglo de usuarios tipo Miembro
+    '''
+    def obtener_miembros(self):
+        miembros = []
+        for usuario in self.usuarios:
+            if isinstance(usuario, Miembro):
+                miembros.append(usuario)
+        return miembros
+
+    '''
+    Metodo que elimina el miembro de la lista de usuarios
+    '''
+    def eliminar_cuenta_miembro(self, miembro):
+        self.usuarios.remove(miembro)
         return True

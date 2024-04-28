@@ -27,11 +27,13 @@ class GestorUsuario:
         usuario2 = Administrador("Pedro", "correo2@ejemplo", "1234", id_usuario)
         self.tabla_usuarios.registrar_usuario(usuario1)
         self.tabla_usuarios.registrar_usuario(usuario2)
+        id_usuario = self.set_id()
+        usuario3 = Miembro("Maria", "correo3@ejemplo", "1234", id_usuario)
+        self.tabla_usuarios.registrar_usuario(usuario3)
 
     '''
     Metodo que recibe los datos de inicio de sesion y manda a la clase Autenticacion para validarlos
     '''
-
     def recibir_datos_inicio_sesion(self, correo, contrasena):
         return self.autenticacion.validacion_credenciales(correo, contrasena)
     
@@ -82,7 +84,41 @@ class GestorUsuario:
             }
         
     '''
-    Metodo que recibe solicitud de controlador para eliminar un usuario
+    Metodo que recibe solicitud de controlador para eliminar un usuario por parte del usuario
     '''
     def solicitud_eliminar_cuenta(self):
         return self.tabla_usuarios.eliminar_cuenta()
+    
+    '''
+    Metodo que despliega una lista de miembros
+    '''
+    def mostrar_miembros(self, miembros):
+        miembros = self.tabla_usuarios.obtener_miembros()
+        # Imprimir correo y nombre con un indice
+        for i, miembro in enumerate(miembros):
+            print(f"{i+1}. {miembro.get_correo()} - {miembro.get_nombre()}")
+
+    '''
+    Metodo que solicita al Administrador que seleccione un miembro para eliminar
+    '''
+    def seleccion_miembro_eliminar(self, len_miembros):
+        valido = False
+        while not valido:
+            seleccion = input("Seleccione el miembro a eliminar: ")
+            # Validar que la seleccion sea un numero y que este en el rango de miembros
+            if seleccion.isdigit() and 0 < int(seleccion) <= len_miembros:
+                valido = True
+                return int(seleccion) - 1
+            else:
+                print("Seleccion no valida")
+    
+    '''
+    Metodo que recibe solicitud de controlador para eliminar un miembro por parte del administrador
+    '''
+    def solicitud_eliminar_cuenta_miembro(self):
+        miembros = self.tabla_usuarios.obtener_miembros()
+        self.mostrar_miembros(miembros)
+        index = self.seleccion_miembro_eliminar(len(miembros))
+        miembro_eliminar = miembros[index]
+        return self.tabla_usuarios.eliminar_cuenta_miembro(miembro_eliminar)
+        

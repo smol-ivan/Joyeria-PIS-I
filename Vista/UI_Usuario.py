@@ -99,12 +99,28 @@ class UI_Usuario:
             elif opcion == "2":
                 self.ver_datos_usuario()
             elif opcion == "3":
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.eliminar_cuenta_miembro()
             elif opcion == "4":
                 break
             else:
                 print("Opción no válida")
+
+    '''
+    Metodo que despliega UI para eliminar cuenta de miembro
+    '''
+    def eliminar_cuenta_miembro(self):
+        while True:
+            print("Eliminar cuenta de miembro")
+            respuesta = self.controlador_usuario.boton_eliminar_cuenta_miembro()
+            if respuesta:
+                print("Cuenta eliminada")
+                break
+            else:
+                print("Hubo un error al eliminar cuenta")
+                print("¿Desea intentar de nuevo?")
+                respuesta = input("S/N: ")
+                if respuesta.lower() == "n":
+                    break
     
     '''
     Metodo que muestra el menu cuenta Miembro
@@ -136,6 +152,7 @@ class UI_Usuario:
     '''
     def obtener_confirmacion_eliminacion_usuario(self):
         print("¿Está seguro que desea eliminar el usuario?")
+        print("Esta acción no se puede deshacer")
         print("S/N")
         respuesta = input()
         return respuesta.lower() == "s"
