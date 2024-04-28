@@ -94,7 +94,7 @@ class UI_Usuario:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                # self.modificar_usuario()
+                self.modificar_usuario()
                 print("No implementado")
             elif opcion == "2":
                 self.ver_datos_usuario()

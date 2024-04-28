@@ -68,7 +68,8 @@ class UI_Principal:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                self.inventario.menu_inventario()
+                # self.inventario.menu_inventario()
+                print("No implementado")
             elif opcion == "2":
                 self.usuario.menu_cuenta_administrador()
             elif opcion == "3":

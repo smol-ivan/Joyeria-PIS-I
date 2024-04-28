@@ -25,6 +25,14 @@ class TablaUsuarios:
     '''        
     def obtener_usuario(self):
         return self.session.obtener_usuario_autenticado()
+    
+    '''
+    Metodo que obtiene el usuario por id
+    '''
+    def obtener_usuario_por_id(self, id_usuario):
+        for usuario in self.usuarios:
+            if usuario.get_id() == id_usuario:
+                return usuario
 
     '''
     Metodo que cambia el dato de usuario segun la opcion elegida
