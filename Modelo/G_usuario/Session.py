@@ -17,7 +17,7 @@ class Session:
         self.usuario_autenticado = None
 
     def iniciar_sesion(self, usuario):
-        self.usuario_autenticado = usuario
+        self.usuario_autenticado = usuario # instancia de Usuario
 
     def cerrar_sesion(self):
         self.usuario_autenticado = None
