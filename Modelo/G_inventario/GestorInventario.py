@@ -1,5 +1,5 @@
 from Modelo.G_inventario.Inventario import Inventario
-
+from Modelo.G_inventario.Producto import Aretes, Collares, Anillos, Piercings, Pulseras, Dijes
 class GestorInventario:
     def __init__(self):
         # Inicialización del gestor de inventario con una instancia del inventario
@@ -24,3 +24,10 @@ class GestorInventario:
     def obtener_inventario(self):
         # Método para obtener el inventario completo utilizando el método correspondiente en el inventario
         return self.Inventario.obtener_inventario()
+
+    def inicializar_inventario(self):
+        producto1 = Aretes("Aretes de plata", "123ABC", "MarcaX", 10, "Plata", "Plateado", "Zirconia", 20)
+        producto2 = Collares("Collar de oro", "456DEF", "MarcaY", 5, "Oro", "Dorado", "Diamante", 100)
+
+        self.agregar_producto(producto1)
+        self.agregar_producto(producto2)

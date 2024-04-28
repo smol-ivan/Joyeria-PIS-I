@@ -28,5 +28,13 @@ class Controller_Inventario:
         self.GestorInventario.actualizar_stock(nombre_producto, stock)
 
     def obtener_inventario(self):
-        # Método para obtener el inventario completo a través del gestor de inventario
+        # Obtiene el inventario del gestor de inventario
+        inventario = self.GestorInventario.obtener_inventario()
+
+        # Si el inventario está vacío, lo inicializa
+        if not inventario:
+            self.GestorInventario.inicializar_inventario()
+
+        # Devuelve el inventario actualizado
         return self.GestorInventario.obtener_inventario()
+

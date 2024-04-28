@@ -104,8 +104,7 @@ class UI_Inventario:
         self.controlador.actualizar_stock(nombre_producto, stock)
 
     def mostrar_inventario(self):
-        # Obtener el inventario del controlador y mostrarlo en formato legible
         inventario = self.controlador.obtener_inventario()
         print("\n=== Inventario ===\n")
         for nombre_producto, stock in inventario.items():
-            print(f"{nombre_producto}: {stock}")
+            print(f"Nombre: {nombre_producto}\n Stock: {stock}\n")
