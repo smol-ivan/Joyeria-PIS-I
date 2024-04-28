@@ -8,7 +8,7 @@ class DatoEnvio:
 
     def __str__(self):
         return f'{self.nombre}\n {self.direccion}\n {self.ciudad}\n {self.codigo_postal}\n {self.pais}'
-    
+ #HOLA
 #arreglo de datos de envio
 dato1 = DatoEnvio("Juan Perez", "Calle 123", "CDMX", "12345", "Mexico")
 dato2 = DatoEnvio("Maria Lopez", "Calle 456", "GDL", "54321", "Mexico")
