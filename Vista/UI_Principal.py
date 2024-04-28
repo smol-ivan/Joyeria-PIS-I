@@ -102,6 +102,8 @@ class UI_Principal:
                 self.pago.menu_pago()
             elif opcion == "4":
                 self.usuario.menu_cuenta_miembro()
+                if not self.session.esta_autenticado():
+                    break
             elif opcion == "5":
                 print("No implementado")
                 print("Regresando al menú principal")

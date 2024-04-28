@@ -122,12 +122,38 @@ class UI_Usuario:
             elif opcion == "2":
                 self.ver_datos_usuario()
             elif opcion == "3":
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.eliminar_cuenta()
+                # Si el usuario se elimino, regresar al menu principal
+                if not self.controlador_usuario.solicitar_datos_usuario():
+                    break
             elif opcion == "4":
                 break
             else:
                 print("Opción no válida")
+
+    '''
+    Metodo que recibe confirmacion de eliminacion de usuario
+    '''
+    def obtener_confirmacion_eliminacion_usuario(self):
+        print("¿Está seguro que desea eliminar el usuario?")
+        print("S/N")
+        respuesta = input()
+        return respuesta.lower() == "s"
+
+    '''
+    Metodo que despliega UI para eliminar la propia cuenta
+    '''
+    def eliminar_cuenta(self):
+        while True:
+            confirmacion = self.obtener_confirmacion_eliminacion_usuario()
+            if confirmacion:
+                self.controlador_usuario.boton_eliminar_cuenta()
+                print("Usuario eliminado")
+                break
+            else:
+                print("Operacion cancelada")
+                break
+
 
     '''
     Metodo que el controlador recibe como evento para mostrar los datos del usuario

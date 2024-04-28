@@ -27,3 +27,9 @@ class Controller_Usuario:
     '''
     def solicitar_datos_usuario(self):
         return self.gestor_usuario.solicitud_datos_usuario()
+    
+    '''
+    Metodo que fungue como evento para solicitar eliminacion de cuenta por parte del usuario
+    '''
+    def boton_eliminar_cuenta(self):
+        return self.gestor_usuario.solicitud_eliminar_cuenta()

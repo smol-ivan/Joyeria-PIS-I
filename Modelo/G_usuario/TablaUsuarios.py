@@ -47,3 +47,13 @@ class TablaUsuarios:
         elif opcion == 3:
             usuario.set_contrasena(dato)
         return True
+    
+    '''
+    Metodo que elimina un usuario de la lista de usuarios
+    '''
+    def eliminar_cuenta(self):
+        id_usuario = self.session.obtener_id_usuario()
+        usuario = self.obtener_usuario_por_id(id_usuario)
+        self.usuarios.remove(usuario)
+        self.session.cerrar_sesion()
+        return True

@@ -80,3 +80,9 @@ class GestorUsuario:
                 "Correo": usuario.get_correo(),
                 "Puesto": usuario.get_puesto()
             }
+        
+    '''
+    Metodo que recibe solicitud de controlador para eliminar un usuario
+    '''
+    def solicitud_eliminar_cuenta(self):
+        return self.tabla_usuarios.eliminar_cuenta()
