@@ -46,7 +46,7 @@ class UI_Pago:
                 print("Quiere intentar de nuevo? (s/n)")
                 opcion = input("Seleccione una opción: ")
                 if opcion.lower() == "n":
-                    break
+                    break # Salimos del ciclo
 
 
     '''
