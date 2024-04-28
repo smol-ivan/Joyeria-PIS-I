@@ -2,7 +2,6 @@ from .Autenticacion import Autenticacion
 from .TablaUsuarios import TablaUsuarios
 from .Miembro import Miembro
 from .Administrador import Administrador
-from .Session import Session
 
 class GestorUsuario:
     def __init__(self):
@@ -10,7 +9,6 @@ class GestorUsuario:
         self.tabla_usuarios = TablaUsuarios()
         self.inicializar_usuarios()
         self.autenticacion = Autenticacion(self.tabla_usuarios)
-        self.session = Session()
 
     '''
     Metodo que actualiza el contador de id
@@ -47,3 +45,9 @@ class GestorUsuario:
         usuario = Miembro(nombre, correo, contrasena, id_usuario)
         self.tabla_usuarios.registrar_usuario(usuario)
         return True
+    
+    '''
+    Metodo que recibe el dato de modificacion de usuario y solicita a la clase TablaUsuarios que lo modifique
+    '''
+    def recibir_datos_modificacion_usuario(self, opcion, dato):
+        return self.tabla_usuarios.modificar_dato_usuario(opcion, dato)

@@ -58,6 +58,11 @@ class UI_Usuario:
     def registrarse(self):
         while True:
             print("Registrarse")
+            print("Desea continuar con el proceso de registro?")
+            print("S/N:")
+            respuesta = input()
+            if respuesta.lower() == "n":
+                break
             nombre, correo, contraseña = self.ingreso_datos_registro()
             respuesta_validacion = self.envia_datos_registro(nombre, correo, contraseña)
             if respuesta_validacion:
@@ -66,6 +71,62 @@ class UI_Usuario:
                 break
             else:
                 print("Correo ya registrado")
+                print("¿Desea intentar de nuevo?")
+                respuesta = input("S/N: ")
+                if respuesta.lower() == "n":
+                    break
+
+    '''
+    Metodo que envia los datos de modificacion al gestor de usuario
+    '''
+    def envia_datos_modificacion(self, opcion, dato):
+        return self.controlador_usuario.enviar_datos_modificacion_usuario(opcion, dato)
+    
+    '''
+    Metodo que muestra el menu cuenta de usuario
+    '''
+    def menu_cuenta_miembro(self):
+        while True:
+            print("Menú de cuenta de usuario")
+            print("1. Modificar usuario")
+            print("2. Ver datos de usuarios")
+            print("3. Eliminar usuario")
+            print("4. Salir")
+            opcion = input("Seleccione una opción: ")
+            if opcion == "1":
+                self.modificar_usuario()
+            elif opcion == "2":
+                print("No implementado")
+                print("Regresando al menú principal")
+            elif opcion == "3":
+                print("No implementado")
+                print("Regresando al menú principal")
+            elif opcion == "4":
+                break
+            else:
+                print("Opción no válida")
+
+    
+    '''
+    Metodo que despliega UI de modificacion de usuario para el miembro
+    '''
+    def modificar_usuario(self):
+        while True:
+            print("Seleccione dato a modificar de la cuenta")
+            print("1. Nombre")
+            print("2. Correo")
+            print("3. Contraseña")
+            print("4. Regresar al menú principal")
+            opcion = input("Seleccione una opción: ")
+            if opcion == "4":
+                break
+            dato = input("Ingrese el nuevo dato: ")
+            respuesta = self.envia_datos_modificacion(int(opcion), dato)
+            if respuesta:
+                print("Modificación exitosa")
+                break
+            else:
+                print("Error al modificar")
                 print("¿Desea intentar de nuevo?")
                 respuesta = input("S/N: ")
                 if respuesta.lower() == "n":

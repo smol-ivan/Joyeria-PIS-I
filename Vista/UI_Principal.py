@@ -100,7 +100,7 @@ class UI_Principal:
             elif opcion == "3":
                 self.pago.menu_pago()
             elif opcion == "4":
-                self.usuario.menu_usuario()
+                self.usuario.menu_cuenta_miembro()
             elif opcion == "5":
                 print("No implementado")
                 print("Regresando al menú principal")

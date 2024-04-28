@@ -24,6 +24,9 @@ class Session:
 
     def obtener_usuario_autenticado(self):
         return self.usuario_autenticado
+    
+    def obtener_id_usuario(self):
+        return self.usuario_autenticado.get_id()
 
     def esta_autenticado(self):
         return self.usuario_autenticado is not None

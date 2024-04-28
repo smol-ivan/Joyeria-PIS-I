@@ -15,3 +15,9 @@ class Controller_Usuario:
     '''
     def enviar_datos_registro_usuario(self, nombre, correo, contrasena):
         return self.gestor_usuario.recibir_datos_registro_usuario(nombre, correo, contrasena)
+    
+    '''
+    Metodo que recibe los datos de modificacion de usuario cuando en la UI se presiona el boton de modificar
+    '''
+    def enviar_datos_modificacion_usuario(self, opcion, dato):
+        return self.gestor_usuario.recibir_datos_modificacion_usuario(opcion, dato)

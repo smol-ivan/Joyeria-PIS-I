@@ -11,7 +11,7 @@ class Autenticacion:
     Regresa False si las credenciales no existen en la base de datos 
     '''
     def validacion_credenciales(self, correo, contrasena):
-        usuario = self.tabla_usuarios.obtener_usuario(correo, contrasena)
+        usuario = self.tabla_usuarios.validar_credenciales(correo, contrasena)
         if usuario:
             self.session.iniciar_sesion(usuario)
             return True
