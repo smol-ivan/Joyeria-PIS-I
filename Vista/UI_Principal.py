@@ -70,7 +70,7 @@ class UI_Principal:
             if opcion == "1":
                 self.inventario.menu_inventario()
             elif opcion == "2":
-                self.usuario.menu_usuario()
+                self.usuario.menu_cuenta_administrador()
             elif opcion == "3":
                 print("No implementado")
                 print("Regresando al menú principal")

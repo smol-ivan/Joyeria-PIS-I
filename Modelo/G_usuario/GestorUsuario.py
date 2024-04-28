@@ -51,3 +51,32 @@ class GestorUsuario:
     '''
     def recibir_datos_modificacion_usuario(self, opcion, dato):
         return self.tabla_usuarios.modificar_dato_usuario(opcion, dato)
+    
+    '''
+    Metodo que recibe solicitud de controlador para obtener los datos de un usuario
+    Obtiene el usuario de la clase session
+    '''
+    def solicitud_datos_usuario(self):
+        usuario = self.tabla_usuarios.obtener_usuario()
+        return self.preparar_datos_usuario(usuario)
+
+    '''
+    Metodo que prepara los datos de el usuario(Miembro) en un diccionario
+    '''
+    def preparar_datos_usuario(self, usuario):
+        # Si el usuario es un miembro
+        if isinstance(usuario, Miembro):
+            return {
+                "Nombre": usuario.get_nombre(),
+                "Correo": usuario.get_correo(),
+                "Fecha de nacimiento": usuario.get_fecha_nacimiento(),
+                "Genero": usuario.get_genero(),
+                "Pais": usuario.get_pais()
+            }
+        # Si el usuario es un administrador
+        elif isinstance(usuario, Administrador):
+            return {
+                "Nombre": usuario.get_nombre(),
+                "Correo": usuario.get_correo(),
+                "Puesto": usuario.get_puesto()
+            }

@@ -83,7 +83,31 @@ class UI_Usuario:
         return self.controlador_usuario.enviar_datos_modificacion_usuario(opcion, dato)
     
     '''
-    Metodo que muestra el menu cuenta de usuario
+    Metodo que muestra el mnenu cuenta Administrador
+    '''
+    def menu_cuenta_administrador(self):
+        while True:
+            print("Menú de cuenta de usuario")
+            print("1. Modificar cuenta Administrador")
+            print("2. Ver datos cuenta Administrador")
+            print("3. Eliminar Miembro")
+            print("4. Salir")
+            opcion = input("Seleccione una opción: ")
+            if opcion == "1":
+                # self.modificar_usuario()
+                print("No implementado")
+            elif opcion == "2":
+                self.ver_datos_usuario()
+            elif opcion == "3":
+                print("No implementado")
+                print("Regresando al menú principal")
+            elif opcion == "4":
+                break
+            else:
+                print("Opción no válida")
+    
+    '''
+    Metodo que muestra el menu cuenta Miembro
     '''
     def menu_cuenta_miembro(self):
         while True:
@@ -96,8 +120,7 @@ class UI_Usuario:
             if opcion == "1":
                 self.modificar_usuario()
             elif opcion == "2":
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.ver_datos_usuario()
             elif opcion == "3":
                 print("No implementado")
                 print("Regresando al menú principal")
@@ -106,7 +129,22 @@ class UI_Usuario:
             else:
                 print("Opción no válida")
 
-    
+    '''
+    Metodo que el controlador recibe como evento para mostrar los datos del usuario
+    Espera recibir un diccionario con los datos del usuario
+    '''
+    def ver_datos_usuario(self):
+        datos = self.controlador_usuario.solicitar_datos_usuario()
+        self.mostrar_datos_usuario(datos)
+
+
+    '''
+    Metodo que despliega los datos del usuario, recibe un diccionario con los datos del usuario
+    '''
+    def mostrar_datos_usuario(self, datos):
+        for key, value in datos.items():
+            print(f"{key}: {value}")
+
     '''
     Metodo que despliega UI de modificacion de usuario para el miembro
     '''

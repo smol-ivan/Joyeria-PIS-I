@@ -21,3 +21,9 @@ class Controller_Usuario:
     '''
     def enviar_datos_modificacion_usuario(self, opcion, dato):
         return self.gestor_usuario.recibir_datos_modificacion_usuario(opcion, dato)
+    
+    '''
+    Metodo que fungue como evento para solicitar la informacion de un usuario
+    '''
+    def solicitar_datos_usuario(self):
+        return self.gestor_usuario.solicitud_datos_usuario()
