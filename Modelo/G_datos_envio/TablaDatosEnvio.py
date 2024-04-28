@@ -1,4 +1,4 @@
-from DatoEnvio import DatoEnvio
+from Modelo.G_usuario.Session import Session
 
 class TablaDatosEnvio:
     def __init__(self):
@@ -10,36 +10,35 @@ class TablaDatosEnvio:
         }
         '''
         self.tabla_datos_envio = {}
-        self.inicializar_datos_envio()
+        self.session = Session()
 
     '''
     Metodo que inicializa los datos de envio
     '''
-    def inicializar_datos_envio(self):
-        self.tabla_datos_envio.append(DatoEnvio("1", "Calle 123", "CDMX", "12345", "México"))
-        self.tabla_datos_envio.append(DatoEnvio("2", "Av. Principal", "Guadalajara", "54321", "México"))
-        self.tabla_datos_envio.append(DatoEnvio("3", "Calle 456", "Monterrey", "67890", "México"))
+    # def inicializar_datos_envio(self
     
     '''
     Metodo que agrega un nuevo dato de envio
     '''
-    def agregar_dato_envio(self, id_usuario, dato_envio):
+    def agregar_dato_envio(self, dato_envio):
+        id_usuario = self.session.obtener_id_usuario()
+        if id_usuario not in self.tabla_datos_envio:
+            self.tabla_datos_envio[id_usuario] = []
         self.tabla_datos_envio[id_usuario].append(dato_envio)
+        return True
 
     '''
     Metodo que obtiene los datos de envio
     '''
-    def obtener_datos_envio(self, id_usuario):
-        return self.tabla_datos_envio[id_usuario]
+    # def obtener_datos_envio(self):
+        
     
     '''
     Metodo que modifica un dato de envio
     '''
-    def modificar_dato_envio(self, id_usuario, indice, dato_envio):
-        self.tabla_datos_envio[id_usuario][indice] = dato_envio
+    # def modificar_dato_envio(self, indice):
 
     '''
     Metodo que elimina un dato de envio
     '''
-    def eliminar_dato_envio(self, id_usuario, indice):
-        self.tabla_datos_envio[id_usuario].pop(indice)
+    # def eliminar_dato_envio(self, indice):
