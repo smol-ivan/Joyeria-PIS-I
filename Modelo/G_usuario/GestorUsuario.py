@@ -103,9 +103,9 @@ class GestorUsuario:
     def seleccion_miembro_eliminar(self, len_miembros):
         valido = False
         while not valido:
-            seleccion = input("Seleccione el miembro a eliminar: ")
+            seleccion = input("Seleccione el miembro a eliminar o 0 para regresar")
             # Validar que la seleccion sea un numero y que este en el rango de miembros
-            if seleccion.isdigit() and 0 < int(seleccion) <= len_miembros:
+            if seleccion.isdigit() and 0 <= int(seleccion) <= len_miembros:
                 valido = True
                 return int(seleccion) - 1
             else:
@@ -117,7 +117,9 @@ class GestorUsuario:
     def solicitud_eliminar_cuenta_miembro(self):
         miembros = self.tabla_usuarios.obtener_miembros()
         self.mostrar_miembros(miembros)
-        index = self.seleccion_miembro_eliminar(len(miembros))
-        miembro_eliminar = miembros[index]
+        seleccion = self.seleccion_miembro_eliminar(len(miembros))
+        if seleccion == 0:
+            return False
+        miembro_eliminar = miembros[seleccion]
         return self.tabla_usuarios.eliminar_cuenta_miembro(miembro_eliminar)
         

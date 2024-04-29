@@ -95,7 +95,6 @@ class UI_Usuario:
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
                 self.modificar_usuario_administrador()
-                print("No implementado")
             elif opcion == "2":
                 self.ver_datos_usuario()
             elif opcion == "3":
@@ -116,11 +115,8 @@ class UI_Usuario:
                 print("Cuenta eliminada")
                 break
             else:
-                print("Hubo un error al eliminar cuenta")
-                print("¿Desea intentar de nuevo?")
-                respuesta = input("S/N: ")
-                if respuesta.lower() == "n":
-                    break
+                print("Operacion cancelada")
+                break
     
     '''
     Metodo que muestra el menu cuenta Miembro
