@@ -4,6 +4,7 @@ from .UI_Pago import UI_Pago
 from .UI_Catalogo import UI_Catalogo
 from .UI_Inventario import UI_Inventario
 from Modelo.G_usuario.Session import Session
+from Controlador.Controller_Inventario import Controller_Inventario
 
 class UI_Principal:
     def __init__(self):
@@ -11,7 +12,8 @@ class UI_Principal:
         self.datos_envio = UI_DatosEnvio()
         self.pago = UI_Pago()
         self.catalogo = UI_Catalogo()
-        self.inventario = UI_Inventario()
+        self.controlador_inventario = Controller_Inventario()
+        self.inventario = UI_Inventario(self.controlador_inventario)
         self.session = Session()
 
     """
