@@ -12,3 +12,6 @@ class Controller_Pago:
     
     def enviar_datos_bancarios_modificar(self, tarjeta_seleccionada, tipo, dato):
         return self.gestor_pago.recibir_datos_bancarios_modificar(tarjeta_seleccionada, tipo, dato)
+    
+    def enviar_datos_bancarios_eliminar(self, tarjeta_seleccionada):
+        return self.gestor_pago.recibir_datos_bancarios_eliminar(tarjeta_seleccionada)

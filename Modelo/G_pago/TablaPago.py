@@ -36,3 +36,10 @@ class TablaPago:
                 self.__pagos[id_usuario][tarjeta_seleccionada].set_cvv(dato)
             return True
         return False
+    
+    def eliminar_tarjeta(self, tarjeta_seleccionada):
+        id_usuario = self.session.obtener_id_usuario()
+        if id_usuario in self.__pagos:
+            self.__pagos[id_usuario].pop(tarjeta_seleccionada)
+            return True
+        return False

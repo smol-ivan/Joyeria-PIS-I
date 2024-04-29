@@ -33,5 +33,8 @@ class GestorPago:
 
     def recibir_datos_bancarios_modificar(self, tarjeta_seleccionada, tipo, dato):
         return self.__tabla_pago.modificar_tarjeta(tarjeta_seleccionada, tipo, dato)
+    
+    def recibir_datos_bancarios_eliminar(self, tarjeta_seleccionada):
+        return self.__tabla_pago.eliminar_tarjeta(tarjeta_seleccionada)
 
     

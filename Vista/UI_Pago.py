@@ -18,8 +18,7 @@ class UI_Pago:
             elif opcion == "2":
                 self.modificar_tarjeta_bancaria()
             elif opcion == "3":
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.eliminar_tarjeta_bancaria()
             elif opcion == "4":
                 self.mostrar_tarjetas_bancarias()
             elif opcion == "5":
@@ -27,6 +26,25 @@ class UI_Pago:
                 break
             else:
                 print("Opción no válida")
+
+    '''
+    Metodo que solicita al controlador eliminar una tarjeta bancaria
+    '''
+    def eliminar_tarjeta_bancaria(self):
+        tarjetas = self.controlador.obtener_tarjetas_bancarias()
+        if tarjetas:
+            self.mostrar_tarjetas_bancarias()
+            print("Seleccione la tarjeta que desea eliminar")
+            tarjeta_seleccionada = self.seleccionar_tarjeta(tarjetas)
+            respuesta = self.controlador.enviar_datos_bancarios_eliminar(tarjeta_seleccionada)
+            if respuesta:
+                print("Tarjeta eliminada exitosamente")
+            else:
+                print("Error al eliminar tarjeta")
+                print("Regresando al menú principal")
+                return
+        else:
+            print("No hay tarjetas bancarias registradas")
     
     '''
     Metodo que solicita y recibe del usuario el nuevo dato de la tarjeta bancaria del dato seleccionado
