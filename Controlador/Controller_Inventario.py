@@ -9,7 +9,7 @@ class Controller_Inventario:
 
     def iniciar_aplicacion(self):
         # Método para iniciar la aplicación, mostrando el menú principal de la interfaz de usuario
-        self.UI_Inventario.menu_principal()
+        self.UI_Inventario.menu_inventario()
 
     def agregar_producto(self, producto):
         # Método para agregar un producto al inventario a través del gestor de inventario

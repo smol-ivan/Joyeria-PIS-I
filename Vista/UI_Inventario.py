@@ -4,7 +4,7 @@ class UI_Inventario:
     def __init__(self, controlador):
         self.controlador = controlador
 
-    def menu_principal(self):
+    def menu_inventario(self):
         while True:
             # Mostrar las opciones del menú principal
             print("\n=== Menú Principal ===\n")

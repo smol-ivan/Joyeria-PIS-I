@@ -70,14 +70,14 @@ class UI_Principal:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                # self.inventario.menu_inventario()
-                print("No implementado")
+                self.inventario.menu_inventario()
             elif opcion == "2":
                 self.usuario.menu_cuenta_administrador()
             elif opcion == "3":
                 print("No implementado")
                 print("Regresando al menú principal")
             elif opcion == "4":
+                print("Saliendo de la tienda en línea")
                 exit()
             else:
                 print("Opción no válida")
