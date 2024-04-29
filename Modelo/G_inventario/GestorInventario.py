@@ -21,6 +21,10 @@ class GestorInventario:
     def actualizar_stock(self, nombre_producto, stock):
         # Método para actualizar el stock de un producto en el inventario utilizando el método correspondiente en el inventario
         self.Inventario.actualizar_stock(nombre_producto, stock)
+        # Actualizar stock en la lista de productos del catalogo
+        for producto in self.Inventario.productos_catalogo:
+            if producto.get_nombre() == nombre_producto:
+                producto.set_stock(stock)
 
     def obtener_inventario(self):
         # Método para obtener el inventario completo utilizando el método correspondiente en el inventario
