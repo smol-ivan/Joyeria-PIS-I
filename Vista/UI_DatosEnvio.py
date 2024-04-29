@@ -20,10 +20,9 @@ class UI_DatosEnvio:
                 self.agregar_datos_envio()
             elif opcion == "2":
                 self.ver_datos_envio()
-                print("No implementado")
             elif opcion == "3":
-                # self.modificar_datos_envio()
-                print("No implementado")
+                self.modificar_datos_envio()
+                #print("No implementado")
             elif opcion == "4":
                 # self.eliminar_datos_envio()
                 print("No implementado")
@@ -71,8 +70,34 @@ class UI_DatosEnvio:
             return
         # Iterar sobre datos y mostrarlos en lista
         for i in range(len(datos)):
+            print(len(datos))
             print(f"Direccion{i+1}\n {datos[i]}")
 
     def modificar_datos_envio(self):
         print("MODIFICAR DATOS DE ENVIO")
-        return self.controller.enviar_modificacion()
+        while True:
+            print("Seleccione dato a modificar de la cuenta")
+            print("1. Nombre")
+            print("2. Direccion")
+            print("3. Ciudad")
+            print("4. Codigo Postal")
+            print("5. Pais")
+            print("6. Salir")
+            op = input("Seleccione una opción: ")
+            if op == "6":
+                break
+            dato = input("Ingrese el nuevo dato: ")
+            respuesta = self.controller.enviar_modificacion(op, dato)
+
+            if respuesta:
+                print("Modificación exitosa")
+                print(respuesta)
+
+                break
+            else:
+                print("Error al modificar")
+                print("¿Desea intentar de nuevo?")
+                respuesta = input("S/N: ")
+                if respuesta.lower() == "n":
+                    break
+

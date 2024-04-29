@@ -18,14 +18,21 @@ class GestorDatosEnvio:
     '''
     def recibir_datos_agregar_datos_envio(self, nombre, direccion, ciudad, cp, pais):
         if self.verificar_datos_envio(nombre, direccion, ciudad, cp, pais):
-            direccion = DatoEnvio(nombre, direccion, ciudad, cp, pais)
-            return self.tabla_datos_envio.agregar_dato_envio(direccion)
+            dato_envio = DatoEnvio(nombre, direccion, ciudad, cp, pais)
+            return self.tabla_datos_envio.agregar_dato_envio(dato_envio)
         return False
 
 
     def obtener_envio(self):
-        # Método para buscar un producto en el inventario utilizando el método correspondiente en el inventario
+
         return self.tabla_datos_envio.obtener_datos_envio()
+
+
+    def recibir_mod(self, opcion, dato):
+        return self.tabla_datos_envio.modificar_dato(opcion, dato)
+
+
+
 
 
 

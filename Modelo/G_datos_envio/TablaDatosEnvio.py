@@ -1,5 +1,5 @@
 from Modelo.G_usuario.Session import Session
-#from Modelo.G_datos_envio.DatoEnvio import DatoEnvio
+
 
 class TablaDatosEnvio:
     def __init__(self):
@@ -37,3 +37,35 @@ class TablaDatosEnvio:
             # Si el usuario no tiene datos de envío
             return []
 
+    def modificar_dato(self, opcion, dato):
+        # Obtener el ID del usuario actual
+        id_usuario = self.session.obtener_id_usuario()
+        # Obtener los datos de envío para el usuario actual
+        dato_envio = self.tabla_datos_envio[id_usuario]
+
+        if datos_envio:
+
+            # Toma el primer dato de envío para modificar
+             # Asegúrate de acceder al objeto correcto
+
+            # Modificar el atributo según la opción
+            if opcion == "1":
+                # Imprimir el nombre usando el getter}
+
+                print(dato_envio)
+
+            '''
+            elif opcion == "2":
+                dato_envio.set_direccion(dato)  # Usa el setter para modificar
+            elif opcion == "3":
+                dato_envio.set_ciudad(dato)
+            elif opcion == "4":
+                dato_envio.set_codigo_postal(dato)
+            elif opcion == "5":
+                dato_envio.set_pais(dato)
+
+            return True  # Indicar que la modificación fue exitosa
+        else:
+            return False  # Si no hay datos de envío para modificar
+ '''
+#correo1@ejemplo
