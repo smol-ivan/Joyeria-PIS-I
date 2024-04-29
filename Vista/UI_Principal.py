@@ -33,9 +33,7 @@ class UI_Principal:
                 self.usuario.iniciar_sesion()
                 self.desplegar_menu_usuario()
             elif opcion == "2":
-                # self.usuario.registrarse()
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.usuario.registrarse()
             elif opcion == "3":
                 # self.catalogo.mostrar_catalogo()
                 print("No implementado")
@@ -70,9 +68,10 @@ class UI_Principal:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                self.inventario.menu_inventario()
+                # self.inventario.menu_inventario()
+                print("No implementado")
             elif opcion == "2":
-                self.usuario.menu_usuario()
+                self.usuario.menu_cuenta_administrador()
             elif opcion == "3":
                 print("No implementado")
                 print("Regresando al menú principal")
@@ -102,7 +101,9 @@ class UI_Principal:
             elif opcion == "3":
                 self.pago.menu_pago()
             elif opcion == "4":
-                self.usuario.menu_usuario()
+                self.usuario.menu_cuenta_miembro()
+                if not self.session.esta_autenticado():
+                    break
             elif opcion == "5":
                 print("No implementado")
                 print("Regresando al menú principal")
@@ -110,6 +111,8 @@ class UI_Principal:
                 print("No implementado")
                 print("Regresando al menú principal")
             elif opcion == "7":
+                print("Saliendo de la tienda en línea")
+                print("Gracias por visitarnos")
                 exit()
             else:
                 print("Opción no válida")

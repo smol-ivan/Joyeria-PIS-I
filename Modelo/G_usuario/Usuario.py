@@ -26,6 +26,6 @@ class Usuario:
     def set_contrasena(self, contrasena):
         self.contrasena = contrasena
 
-    def get_id_usuario(self):
+    def get_id(self):
         return self.id_usuario
         
