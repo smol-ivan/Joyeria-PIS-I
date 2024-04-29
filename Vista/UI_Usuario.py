@@ -94,7 +94,7 @@ class UI_Usuario:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                self.modificar_usuario()
+                self.modificar_usuario_administrador()
                 print("No implementado")
             elif opcion == "2":
                 self.ver_datos_usuario()
@@ -134,7 +134,7 @@ class UI_Usuario:
             print("4. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                self.modificar_usuario()
+                self.modificar_usuario_miembro()
             elif opcion == "2":
                 self.ver_datos_usuario()
             elif opcion == "3":
@@ -189,9 +189,9 @@ class UI_Usuario:
             print(f"{key}: {value}")
 
     '''
-    Metodo que despliega UI de modificacion de usuario para el miembro
+    Metodo que despliega UI de modificacion de usuario para el administrador
     '''
-    def modificar_usuario(self):
+    def modificar_usuario_administrador(self):
         while True:
             print("Seleccione dato a modificar de la cuenta")
             print("1. Nombre")
@@ -200,6 +200,34 @@ class UI_Usuario:
             print("4. Regresar al menú principal")
             opcion = input("Seleccione una opción: ")
             if opcion == "4":
+                break
+            dato = input("Ingrese el nuevo dato: ")
+            respuesta = self.envia_datos_modificacion(int(opcion), dato)
+            if respuesta:
+                print("Modificación exitosa")
+                break
+            else:
+                print("Error al modificar")
+                print("¿Desea intentar de nuevo?")
+                respuesta = input("S/N: ")
+                if respuesta.lower() == "n":
+                    break
+            
+    '''
+    Metodo que despliega UI de modificacion de usuario para el miembro
+    '''
+    def modificar_usuario_miembro(self):
+        while True:
+            print("Seleccione dato a modificar de la cuenta")
+            print("1. Nombre")
+            print("2. Correo")
+            print("3. Contraseña")
+            print("4. Fecha de nacimiento")
+            print("5. Genero")
+            print("6. Pais")
+            print("7. Regresar al menú principal")
+            opcion = input("Seleccione una opción: ")
+            if opcion == "7":
                 break
             dato = input("Ingrese el nuevo dato: ")
             respuesta = self.envia_datos_modificacion(int(opcion), dato)
