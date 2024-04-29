@@ -93,7 +93,6 @@ class GestorUsuario:
     Metodo que despliega una lista de miembros
     '''
     def mostrar_miembros(self, miembros):
-        miembros = self.tabla_usuarios.obtener_miembros()
         # Imprimir correo y nombre con un indice
         for i, miembro in enumerate(miembros):
             print(f"{i+1}. {miembro.get_correo()} - {miembro.get_nombre()}")
