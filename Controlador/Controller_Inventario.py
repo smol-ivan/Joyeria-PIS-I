@@ -31,10 +31,6 @@ class Controller_Inventario:
         # Obtiene el inventario del gestor de inventario
         inventario = self.GestorInventario.obtener_inventario()
 
-        # Si el inventario está vacío, lo inicializa
-        if not inventario:
-            self.GestorInventario.inicializar_inventario()
-
         # Devuelve el inventario actualizado
         return self.GestorInventario.obtener_inventario()
 

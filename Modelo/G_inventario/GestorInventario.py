@@ -4,6 +4,7 @@ class GestorInventario:
     def __init__(self):
         # Inicialización del gestor de inventario con una instancia del inventario
         self.Inventario = Inventario()
+        self.inicializar_inventario
 
     def agregar_producto(self, producto):
         # Método para agregar un producto al inventario utilizando el método correspondiente en el inventario
