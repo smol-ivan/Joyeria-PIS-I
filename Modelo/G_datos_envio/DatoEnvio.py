@@ -6,20 +6,57 @@ class DatoEnvio:
         self.codigo_postal = codigo_postal
         self.pais = pais
 
+    @property
+    def nombre(self):
+            return self._nombre
+
+    @property
+    def direccion(self):
+            return self._direccion
+
+    @property
+    def ciudad(self):
+            return self._ciudad
+
+    @property
+    def codigo_postal(self):
+            return self._codigo_postal
+
+    @property
+    def pais(self):
+            return self._pais
+
+    @nombre.setter
+    def nombre(self, valor):
+            if not valor:
+                raise ValueError("El nombre no puede estar vacío")
+            self._nombre = valor
+
+    @direccion.setter
+    def direccion(self, valor):
+            if not valor:
+                raise ValueError("La dirección no puede estar vacía")
+            self._direccion = valor
+
+    @ciudad.setter
+    def ciudad(self, valor):
+            if not valor:
+                raise ValueError("La ciudad no puede estar vacía")
+            self._ciudad = valor
+
+    @codigo_postal.setter
+    def codigo_postal(self, valor):
+            if not valor:
+                raise ValueError("El código postal no puede estar vacío")
+            self._codigo_postal = valor
+
+    @pais.setter
+    def pais(self, valor):
+            if not valor:
+                raise ValueError("El país no puede estar vacío")
+            self._pais = valor
+
     def __str__(self):
-        return f'{self.nombre}\n {self.direccion}\n {self.ciudad}\n {self.codigo_postal}\n {self.pais}'
- #HOLA
-#arreglo de datos de envio
-dato1 = DatoEnvio("Juan Perez", "Calle 123", "CDMX", "12345", "Mexico")
-dato2 = DatoEnvio("Maria Lopez", "Calle 456", "GDL", "54321", "Mexico")
+            return f"{self.nombre}, {self.direccion}, {self.ciudad}, {self.codigo_postal}, {self.pais}"
 
-arr = [dato1, dato2]
 
-# Iterar sobre el arreglo de datos de envio e imprimir cada uno
-for i in range(len(arr)):
-    print(f'Dato de envio {i+1}:')
-    print(arr[i])
-
-# seleccionar dato envio
-index = int(input("Seleccione el dato de envio: "))
-index -= 1

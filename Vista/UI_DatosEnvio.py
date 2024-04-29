@@ -19,7 +19,7 @@ class UI_DatosEnvio:
             if opcion == "1":
                 self.agregar_datos_envio()
             elif opcion == "2":
-                # self.ver_datos_envio()
+                self.ver_datos_envio()
                 print("No implementado")
             elif opcion == "3":
                 # self.modificar_datos_envio()
@@ -61,4 +61,14 @@ class UI_DatosEnvio:
     
     '''
     '''
-    
+    def ver_datos_envio(self):
+
+        print("Visualizar datos de envío")
+
+        datos = self.controller.obtener_envio()
+
+        print(datos)
+
+    def modificar_datos_envio(self):
+        print("MODIFICAR DATOS DE ENVIO")
+        return self.controller.enviar_modificacion()
