@@ -14,5 +14,5 @@ class Controller_DatosEnvio:
         # Método para buscar un producto en el inventario a través del gestor de inventario
         return self.gestor_datos_envio.obtener_envio()
 
-    def enviar_modificacion(self opcion):
-        return self.gestor_datos_envio.
+    def enviar_modificacion(self, opcion):
+        return self.gestor_datos_envio()

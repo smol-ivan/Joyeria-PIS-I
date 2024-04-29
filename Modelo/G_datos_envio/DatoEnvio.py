@@ -57,6 +57,6 @@ class DatoEnvio:
             self._pais = valor
 
     def __str__(self):
-            return f"{self.nombre}, {self.direccion}, {self.ciudad}, {self.codigo_postal}, {self.pais}"
+            return f"Nombre: {self.nombre}\n Direccion:{self.direccion}\n Ciudad:{self.ciudad}\n Codigo Postal{self.codigo_postal}\n {self.pais}"
 
 

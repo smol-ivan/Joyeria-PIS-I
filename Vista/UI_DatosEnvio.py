@@ -64,10 +64,14 @@ class UI_DatosEnvio:
     def ver_datos_envio(self):
 
         print("Visualizar datos de envío")
-
         datos = self.controller.obtener_envio()
-
-        print(datos)
+        # Si datos es un arreglo vacio, entonces no hay datos de envio
+        if not datos:
+            print("No hay datos de envio")
+            return
+        # Iterar sobre datos y mostrarlos en lista
+        for i in range(len(datos)):
+            print(f"Direccion{i+1}\n {datos[i]}")
 
     def modificar_datos_envio(self):
         print("MODIFICAR DATOS DE ENVIO")
