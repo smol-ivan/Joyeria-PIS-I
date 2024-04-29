@@ -18,3 +18,21 @@ class TablaPago:
             self.__pagos[id_usuario] = []
         self.__pagos[id_usuario].append(tarjeta) # Agregaramos la tarjeta al usuario
         return True
+    
+    def obtener_tarjetas(self):
+        id_usuario = self.session.obtener_id_usuario()
+        if id_usuario in self.__pagos:
+            return self.__pagos[id_usuario]
+        return None
+    
+    def modificar_tarjeta(self, tarjeta_seleccionada, tipo, dato):
+        id_usuario = self.session.obtener_id_usuario()
+        if id_usuario in self.__pagos:
+            if tipo == "numero":
+                self.__pagos[id_usuario][tarjeta_seleccionada].set_numero(dato)
+            elif tipo == "fecha_vencimiento":
+                self.__pagos[id_usuario][tarjeta_seleccionada].set_fecha_vencimiento(dato)
+            else:
+                self.__pagos[id_usuario][tarjeta_seleccionada].set_cvv(dato)
+            return True
+        return False

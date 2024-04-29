@@ -6,3 +6,9 @@ class Controller_Pago:
 
     def enviar_datos_bancarios_agregar(self, tipo_tarjeta, numero, fecha_vencimiento, cvv):
         return self.gestor_pago.recibir_datos_bancarios_agregar(tipo_tarjeta, numero, fecha_vencimiento, cvv)
+
+    def obtener_tarjetas_bancarias(self):
+        return self.gestor_pago.solicitud_obtener_tarjetas_bancarias()
+    
+    def enviar_datos_bancarios_modificar(self, tarjeta_seleccionada, tipo, dato):
+        return self.gestor_pago.recibir_datos_bancarios_modificar(tarjeta_seleccionada, tipo, dato)

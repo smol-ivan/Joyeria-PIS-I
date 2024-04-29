@@ -16,19 +16,88 @@ class UI_Pago:
             if opcion == "1":
                 self.agregar_tarjeta_bancaria()
             elif opcion == "2":
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.modificar_tarjeta_bancaria()
             elif opcion == "3":
                 print("No implementado")
                 print("Regresando al menú principal")
             elif opcion == "4":
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.mostrar_tarjetas_bancarias()
             elif opcion == "5":
                 print("Regresando al menú principal")
                 break
             else:
                 print("Opción no válida")
+    
+    '''
+    Metodo que solicita y recibe del usuario el nuevo dato de la tarjeta bancaria del dato seleccionado
+    '''
+    def solicitar_nuevo_dato(self):
+        while True:
+            print("Seleccione dato a modificar de la tarjeta")
+            print("1. Número")
+            print("2. Fecha de vencimiento")
+            print("3. CVV")
+            opcion = input("Seleccione una opción: ")
+            if opcion != "1" and opcion != "2" and opcion != "3":
+                print("Opción no válida")
+            else:
+                dato = input("Ingrese el nuevo dato: ")
+                if opcion == "1":
+                    tipo = "numero"
+                elif opcion == "2":
+                    tipo = "fecha_vencimiento"
+                else:
+                    tipo = "cvv"
+                return tipo, dato
+            
+    '''
+    Metodo que recibe una lista de tarjetas bancarias y solicita al usuario seleccionar una
+    '''
+    def seleccionar_tarjeta(self, tarjetas):
+        while True:
+            opcion = input("Seleccione una tarjeta: ")
+            if opcion.isdigit() and int(opcion) > 0 and int(opcion) < len(tarjetas) + 1:
+                return int(opcion)-1 # Regresamos el indice de la tarjeta seleccionada
+            else:
+                print("Opción no válida")
+
+    '''
+    Metodo que modifica una tarjeta bancaria
+    '''
+    def modificar_tarjeta_bancaria(self):
+        tarjetas = self.controlador.obtener_tarjetas_bancarias()
+        if tarjetas:
+            self.mostrar_tarjetas_bancarias()
+            print("Seleccione la tarjeta que desea modificar")
+            tarjeta_seleccionada = self.seleccionar_tarjeta(tarjetas)
+            tipo, dato = self.solicitar_nuevo_dato()
+            respuesta = self.controlador.enviar_datos_bancarios_modificar(tarjeta_seleccionada, tipo, dato)
+            if respuesta:
+                print("Tarjeta modificada exitosamente")
+            else:
+                print("Error al modificar tarjeta")
+                print("Regresando al menú principal")
+                return
+        else:
+            print("No hay tarjetas bancarias registradas")
+
+
+    '''
+    Metodo que solicita al controlador las tarjetas bancarias y las muestra
+    '''
+    def mostrar_tarjetas_bancarias(self):
+        tarjetas = self.controlador.obtener_tarjetas_bancarias()
+        if tarjetas:
+            print("Tarjetas Bancarias")
+            for i, tarjeta in enumerate(tarjetas):
+                print("Tarjeta no. ", i+1)
+                print("Tipo: ", tarjeta.get_tipo())
+                print("Número: ", tarjeta.get_numero())
+                print("Fecha de vencimiento: ", tarjeta.get_fecha_vencimiento())
+                print("CVV: ", tarjeta.get_cvv())
+                print("----------------------------")
+        else:
+            print("No hay tarjetas bancarias registradas")
 
     '''
     Metodo que muestra UI para agregar tarjeta bancaria
