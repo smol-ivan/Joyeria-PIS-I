@@ -19,7 +19,7 @@ class UI_DatosEnvio:
             if opcion == "1":
                 self.agregar_datos_envio()
             elif opcion == "2":
-                self.ver_datos_envio()
+                self.mostrar_datos_envio()
             elif opcion == "3":
                 self.modificar_datos_envio()
                 #print("No implementado")
@@ -59,22 +59,55 @@ class UI_DatosEnvio:
         return nombre, direccion, ciudad, cp, pais
     
     '''
+    Metodo que despliega UI para ver los datos de envio
     '''
-    def ver_datos_envio(self):
-
-        print("Visualizar datos de envío")
-        datos = self.controller.obtener_envio()
+    def mostrar_datos_envio(self):
+        datos = self.controller.obtener_datos_envio()
         # Si datos es un arreglo vacio, entonces no hay datos de envio
         if not datos:
             print("No hay datos de envio")
-            return
+            return False
         # Iterar sobre datos y mostrarlos en lista
-        for i in range(len(datos)):
-            print(len(datos))
-            print(f"Direccion{i+1}\n {datos[i]}")
+        print("Datos de envio")
+        for i, dato in enumerate(datos):
+            print(f'Direccion {i+1}\n {dato}\n')
+            print("----------------------------")
 
+    '''
+    Metodo que obtiene el indice de el dato de envio solicitado
+    '''
+    def seleccionar_dato_envio(self, datos):
+        while True:
+            opcion = input("Seleccione una tarjeta: ")
+            if opcion.isdigit() and int(opcion) > 0 and int(opcion) < len(datos) + 1:
+                return int(opcion)-1 # Regresamos el indice de la tarjeta seleccionada
+            else:
+                print("Opción no válida")
+
+    '''
+    Metodo que despliega la UI para modificar datos de envio
+    '''
     def modificar_datos_envio(self):
         print("MODIFICAR DATOS DE ENVIO")
+        if self.mostrar_datos_envio():
+            return
+        datos = self.controller.obtener_datos_envio()
+        indice = self.seleccionar_dato_envio(datos)
+        tipo_dato, dato = self.seleccionar_dato_modificar()
+        respuesta = self.controller.enviar_modificacion(tipo_dato, dato, indice)
+        if respuesta:
+            print("Dato modificado exitosamente")
+        else:
+            print("Error al modificar el dato")
+            print("¿Desea intentar de nuevo?")
+            respuesta = input("S/N: ")
+            if respuesta.lower() == "n":
+                return
+
+    '''
+    Metodo que solicita al usuario que dato de la cuenta desea modificar y el nuevo dato
+    '''
+    def seleccionar_dato_modificar(self):
         while True:
             print("Seleccione dato a modificar de la cuenta")
             print("1. Nombre")
@@ -83,21 +116,19 @@ class UI_DatosEnvio:
             print("4. Codigo Postal")
             print("5. Pais")
             print("6. Salir")
-            op = input("Seleccione una opción: ")
-            if op == "6":
+            opcion = input("Seleccione una opción: ")
+            if opcion == "6":
                 break
+            if opcion == "1":
+                tipo_dato = "nombre"
+            elif opcion == "2":
+                tipo_dato = "direccion"
+            elif opcion == "3":
+                tipo_dato = "ciudad"
+            elif opcion == "4":
+                tipo_dato = "cp"
+            elif opcion == "5":
+                tipo_dato = "pais"
             dato = input("Ingrese el nuevo dato: ")
-            respuesta = self.controller.enviar_modificacion(op, dato)
-
-            if respuesta:
-                print("Modificación exitosa")
-                print(respuesta)
-
-                break
-            else:
-                print("Error al modificar")
-                print("¿Desea intentar de nuevo?")
-                respuesta = input("S/N: ")
-                if respuesta.lower() == "n":
-                    break
-
+            return tipo_dato, dato
+            

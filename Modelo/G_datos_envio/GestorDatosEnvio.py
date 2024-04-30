@@ -23,13 +23,13 @@ class GestorDatosEnvio:
         return False
 
 
-    def obtener_envio(self):
+    def obtener_datos_envio(self):
 
         return self.tabla_datos_envio.obtener_datos_envio()
 
 
-    def recibir_mod(self, opcion, dato):
-        return self.tabla_datos_envio.modificar_dato(opcion, dato)
+    def recibir_modificacion(self, tipo_dato, dato, indice):
+        return self.tabla_datos_envio.modificar_dato(tipo_dato, dato, indice)
 
 
 

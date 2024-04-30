@@ -6,10 +6,12 @@ class DatoEnvio:
         self.codigo_postal = codigo_postal
         self.pais = pais
 
-
+    '''
+    Metodos get y set de la clase DatoEnvio
+    '''
+    
     def get_nombre(self):
             return self._nombre
-
 
     def get_direccion(self):
             return self._direccion
@@ -26,31 +28,27 @@ class DatoEnvio:
     def set_nombre(self, valor):
             if not valor:
                 raise ValueError("El nombre no puede estar vacío")
-            self._nombre = valor
-
+            self.nombre = valor
 
     def set_direccion(self, valor):
             if not valor:
                 raise ValueError("La dirección no puede estar vacía")
-            self._direccion = valor
-
+            self.direccion = valor
 
     def set_ciudad(self, valor):
             if not valor:
                 raise ValueError("La ciudad no puede estar vacía")
-            self._ciudad = valor
-
+            self.ciudad = valor
 
     def set_codigo_postal(self, valor):
             if not valor:
                 raise ValueError("El código postal no puede estar vacío")
-            self._codigo_postal = valor
-
+            self.codigo_postal = valor
 
     def set_pais(self, valor):
             if not valor:
                 raise ValueError("El país no puede estar vacío")
-            self._pais = valor
+            self.pais = valor
 
     def __str__(self):
             return f"Nombre: {self.nombre}\n Direccion:{self.direccion}\n Ciudad:{self.ciudad}\n Codigo Postal:{self.codigo_postal}\n Pais:{self.pais}"
