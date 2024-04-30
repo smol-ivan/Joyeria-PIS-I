@@ -23,7 +23,7 @@ class GestorCatalogo():
             self.tabla_catalogo.agregar_catalogo(catalogo, tipo_producto)
 
     def crear_catalogos(self):
-        tabla_productos = self.obtener_productos_inventario()
+        tabla_productos = self.tabla_catalogo.obtener_productos_inventario()
         catalogo_Aretes = Catalogo()
         catalogo_Collares = Catalogo()
         catalogo_Anillos = Catalogo()

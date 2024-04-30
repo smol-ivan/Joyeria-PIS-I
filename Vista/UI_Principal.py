@@ -97,7 +97,7 @@ class UI_Principal:
             print("7. Salir")
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
-                self.catalogo.mostrar_catalogo()
+                self.catalogo.menu_catalogo()
             elif opcion == "2":
                 self.datos_envio.menu_datos_envio()
             elif opcion == "3":

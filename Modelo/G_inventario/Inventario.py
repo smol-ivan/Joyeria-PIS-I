@@ -1,4 +1,6 @@
 class Inventario:
+    _instance = None
+    
     def __init__(self):
         # Inicializa el diccionario de productos donde se almacenará el inventario
         self.productos = {}

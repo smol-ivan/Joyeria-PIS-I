@@ -15,7 +15,8 @@ class TablaCatalogo():
         self.catalogos = {}
 
     def obtener_productos_inventario(self):
-        return self.productos_inventario()
+        arr = self.productos_inventario
+        return arr
     
     def agregar_catalogo(self, catalogo, tipo_producto):
         self.catalogos[tipo_producto] = catalogo
