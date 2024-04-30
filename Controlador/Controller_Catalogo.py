@@ -7,3 +7,5 @@ class Controller_Catalogo:
     def boton_mostrar_catalogo(self, tipo_producto):
         catalogo = self.gestor_catalogo.solicitar_catalogo(tipo_producto)
         return catalogo
+    
+    

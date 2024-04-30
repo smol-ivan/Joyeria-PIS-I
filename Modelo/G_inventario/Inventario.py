@@ -1,3 +1,5 @@
+from Modelo.G_inventario.Producto import Aretes, Collares, Anillos, Piercings, Pulseras, Dijes
+
 class Inventario:
     _instance = None
     
@@ -5,6 +7,8 @@ class Inventario:
         # Inicializa el diccionario de productos donde se almacenará el inventario
         self.productos = {}
         self.productos_catalogo = []
+        self.inicializar_inventario()
+        
 
         '''
     Metodo que crea una instancia de la clase Session si no existe una ya creada.
@@ -14,7 +18,30 @@ class Inventario:
         if not cls._instance:
             cls._instance = super().__new__(cls, *args, **kwargs)
             # Inicialización de la instancia del inventario
-        return cls._instance  
+        return cls._instance 
+     
+    def inicializar_inventario(self):
+        producto1 = Aretes("Aretes de plata", "123ABC", "MarcaX", 10, "Plata", "Plateado", "Zirconia", 20)
+        producto2 = Collares("Collar de oro", "456DEF", "MarcaY", 5, "Oro", "Dorado", "Diamante", 100)
+        producto3 = Anillos("Anillo de plata", "789GHI", "MarcaZ", 15, "Plata", "Plateado", "Zirconia", 30)
+        producto4 = Piercings("Piercing de oro", "321JKL", "MarcaW", 3, "Oro", "Dorado", "Diamante", 50)
+        producto5 = Pulseras("Pulsera de plata", "654MNO", "MarcaV", 7, "Plata", "Plateado", "Zirconia", 40)
+        producto6 = Dijes("Dije de oro", "987PQR", "MarcaU", 2, "Oro", "Dorado", "Diamante", 60)
+        producto7 = Aretes("Aretes de oro", "123STU", "MarcaT", 8, "Oro", "Dorado", "Diamante", 80)
+        producto8 = Collares("Collar de plata", "456VWX", "MarcaS", 4, "Plata", "Plateado", "Zirconia", 25)
+        producto9 = Anillos("Anillo de oro", "789YZA", "MarcaR", 12, "Oro", "Dorado", "Diamante", 70)   
+        producto10 = Piercings("Piercing de plata", "321BCD", "MarcaQ", 1, "Plata", "Plateado", "Zirconia", 35)
+
+        self.agregar_producto(producto1)
+        self.agregar_producto(producto2)
+        self.agregar_producto(producto3)
+        self.agregar_producto(producto4)
+        self.agregar_producto(producto5)
+        self.agregar_producto(producto6)
+        self.agregar_producto(producto7)
+        self.agregar_producto(producto8)
+        self.agregar_producto(producto9)
+        self.agregar_producto(producto10)
 
     def agregar_producto(self, producto):
         # Agrega un producto al inventario o actualiza su stock si ya existe

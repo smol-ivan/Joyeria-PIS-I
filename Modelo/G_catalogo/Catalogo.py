@@ -4,3 +4,6 @@ class Catalogo():
 
     def agregar_producto(self, producto):
         self.productos.append(producto)
+
+    def obtener_productos(self):
+        return self.productos

@@ -43,9 +43,9 @@ class Producto:
     def set_stock(self, stock):
         self.stock = stock
     
-def __str__(self):
-    # Define la representación en cadena de texto del producto
-    return f"Nombre: {self.nombre}\nModelo: {self.modelo}\nMarca: {self.marca}\nStock: {self.stock}\nMaterial: {self.material}\nColor: {self.color}\nPiedra: {self.piedra}\nPrecio: {self.precio}"
+    def __str__(self):
+        # Define la representación en cadena de texto del producto
+        return f"Nombre: {self.nombre}\nModelo: {self.modelo}\nMarca: {self.marca}\nStock: {self.stock}\nMaterial: {self.material}\nColor: {self.color}\nPiedra: {self.piedra}\nPrecio: {self.precio}"
 
 class Aretes(Producto):
     pass  # No se añaden atributos o métodos específicos, hereda todo de Producto
