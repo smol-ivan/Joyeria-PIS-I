@@ -20,14 +20,11 @@ class GestorInventario:
     def actualizar_stock(self, nombre_producto, stock):
         # Método para actualizar el stock de un producto en el inventario utilizando el método correspondiente en el inventario
         self.Inventario.actualizar_stock(nombre_producto, stock)
+        # Actualizar stock en la lista de productos del catalogo
+        for producto in self.Inventario.productos_catalogo:
+            if producto.get_nombre() == nombre_producto:
+                producto.set_stock(stock)
 
     def obtener_inventario(self):
         # Método para obtener el inventario completo utilizando el método correspondiente en el inventario
         return self.Inventario.obtener_inventario()
-
-    def inicializar_inventario(self):
-        producto1 = Aretes("Aretes de plata", "123ABC", "MarcaX", 10, "Plata", "Plateado", "Zirconia", 20)
-        producto2 = Collares("Collar de oro", "456DEF", "MarcaY", 5, "Oro", "Dorado", "Diamante", 100)
-
-        self.agregar_producto(producto1)
-        self.agregar_producto(producto2)

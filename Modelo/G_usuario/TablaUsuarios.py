@@ -47,6 +47,12 @@ class TablaUsuarios:
             usuario.set_correo(dato)
         elif opcion == 3:
             usuario.set_contrasena(dato)
+        elif opcion == 4:
+            usuario.set_fecha_nacimiento(dato)
+        elif opcion == 5:
+            usuario.set_genero(dato)
+        elif opcion == 6:
+            usuario.set_pais(dato)
         return True
     
     '''
