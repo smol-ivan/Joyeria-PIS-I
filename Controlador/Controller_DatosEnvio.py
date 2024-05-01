@@ -22,3 +22,6 @@ class Controller_DatosEnvio:
     '''
     def enviar_modificacion(self, tipo_dato, dato, indice):
         return self.gestor_datos_envio.recibir_modificacion(tipo_dato, dato, indice)
+
+    def enviar_eliminar_dato(self, indice):
+        return self.gestor_datos_envio.recibir_eliminar_dato(indice)

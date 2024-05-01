@@ -26,8 +26,8 @@ class UI_DatosEnvio:
                 self.modificar_datos_envio()
                 # print("No implementado")
             elif opcion == "4":
-                # self.eliminar_datos_envio()
-                print("No implementado")
+                 self.eliminar_datos_envio()
+                #print("No implementado")
             elif opcion == "5":
                 break
             else:
@@ -84,14 +84,7 @@ class UI_DatosEnvio:
 
     def seleccionar_dato_envio(self, datos):
         while True:
-            print("MODIFICAR CUENTA")
-            print("1. Nombre")
-            print("2. Direccion")
-            print("3. Ciudad")
-            print("4. Codigo Postal")
-            print("5. Pais")
-            print("6. Salir")
-            opcion = input("Seleccione el dato que desea modificar o presionne 6 para salir: ")
+            opcion = input("Seleccione la direccion que desea modificar:")
 
             if opcion.isdigit() and int(opcion) > 0 and int(opcion) < len(datos) + 1:
                 return int(opcion) - 1  # Regresamos el indice de la tarjeta seleccionada
@@ -107,8 +100,17 @@ class UI_DatosEnvio:
         if self.mostrar_datos_envio():
             return
         datos = self.controller.obtener_datos_envio()
+
         indice = self.seleccionar_dato_envio(datos)
-        tipo_dato, dato = self.seleccionar_dato_modificar(indice+1)
+        print("1. Nombre")
+        print("2. Direccion")
+        print("3. Ciudad")
+        print("4. Codigo Postal")
+        print("5. Pais")
+        print("6. Salir")
+        opcion = input("Seleccione el dato que desea modificar:")
+
+        tipo_dato, dato = self.seleccionar_dato_modificar(opcion)
         respuesta = self.controller.enviar_modificacion(tipo_dato, dato, indice)
         if respuesta:
             print("Dato modificado exitosamente")
@@ -124,19 +126,47 @@ class UI_DatosEnvio:
     '''
 
     def seleccionar_dato_modificar(self, opcion):
-        while True:
+        tipo_dato = None  # Inicializar para evitar errores
+        dato = None  # Inicializar para evitar errores
 
-            if opcion == 6:
-                break
-            if opcion == 1:
-                tipo_dato = "nombre"
-            elif opcion == 2:
-                tipo_dato = "direccion"
-            elif opcion == 3:
-                tipo_dato = "ciudad"
-            elif opcion == 4:
-                tipo_dato = "cp"
-            elif opcion == 5:
-                tipo_dato = "pais"
+        if opcion == "6":
+            return None, None
+
+        if opcion == "1":
+            tipo_dato = "nombre"
+        elif opcion == "2":
+            tipo_dato = "direccion"
+        elif opcion == "3":
+            tipo_dato = "ciudad"
+        elif opcion == "4":
+            tipo_dato = "cp"
+        elif opcion == "5":
+            tipo_dato = "pais"
+
+        if tipo_dato:
             dato = input("Ingrese el nuevo dato: ")
-            return tipo_dato, dato
+            return tipo_dato, dato  # Retorna siempre una tupla
+        else:
+            print("Opción no válida, intente de nuevo.")
+            return None, None  # Devuelve valores vacíos si la opción es inválida
+
+    def eliminar_datos_envio(self ):
+        print("ELIMINAR DATOS DE ENVIO")
+        if self.mostrar_datos_envio():
+            return
+        datos = self.controller.obtener_datos_envio()
+
+        indice = self.seleccionar_dato_envio(datos)
+        delete = self.controller.enviar_eliminar_dato(indice)
+        if(delete):
+            print("Dato eliminado exitosamente")
+        else:
+            print("Error al modificar el dato")
+            print("¿Desea intentar de nuevo?")
+            respuesta = input("S/N: ")
+            if respuesta.lower() == "n":
+                return
+
+
+
+

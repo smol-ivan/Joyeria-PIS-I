@@ -30,6 +30,7 @@ class TablaDatosEnvio:
         # Obtener el ID del usuario actual desde la sesión
         id_usuario = self.session.obtener_id_usuario()
 
+
         # Verificar si el usuario tiene datos de envío
         if id_usuario in self.tabla_datos_envio:
             return self.tabla_datos_envio[id_usuario]
@@ -54,4 +55,22 @@ class TablaDatosEnvio:
         elif tipo_dato == "pais":
             dato_envio[indice].set_pais(dato)
         return True
+
+    def eliminar_dato(self, indice):
+        # Obtener el ID del usuario actual
+        id_usuario = self.session.obtener_id_usuario()
+
+        # Verificar que el usuario tenga datos de envío
+        if id_usuario in self.tabla_datos_envio:
+            datos_envio = self.tabla_datos_envio[id_usuario]
+
+            # Asegurarse de que el índice esté dentro del rango
+            if 0 <= indice < len(datos_envio):
+                del datos_envio[indice]
+                return True
+
+        # Si el índice es inválido o el usuario no tiene datos de envío
+        return False
+
+
 #correo1@ejemplo
