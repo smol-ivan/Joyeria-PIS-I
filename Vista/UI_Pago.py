@@ -6,7 +6,7 @@ class UI_Pago:
 
     def menu_pago(self):
         while True:
-            print("Menú de pago")
+            print("\n=== Menú Pago ===\n")
             print("1. Agregar Tarjeta Bancaria")
             print("2. Modificar Tarjeta Bancaria")
             print("3. Eliminar Tarjeta Bancaria")
@@ -38,28 +38,28 @@ class UI_Pago:
             tarjeta_seleccionada = self.seleccionar_tarjeta(tarjetas)
             respuesta = self.controlador.enviar_datos_bancarios_eliminar(tarjeta_seleccionada)
             if respuesta:
-                print("Tarjeta eliminada exitosamente")
+                print("\nTarjeta eliminada exitosamente")
             else:
-                print("Error al eliminar tarjeta")
+                print("\nError al eliminar tarjeta")
                 print("Regresando al menú principal")
                 return
         else:
-            print("No hay tarjetas bancarias registradas")
+            print("\nNo hay tarjetas bancarias registradas")
     
     '''
     Metodo que solicita y recibe del usuario el nuevo dato de la tarjeta bancaria del dato seleccionado
     '''
     def solicitar_nuevo_dato(self):
         while True:
-            print("Seleccione dato a modificar de la tarjeta")
+            print("\nSeleccione dato a modificar de la tarjeta")
             print("1. Número")
             print("2. Fecha de vencimiento")
             print("3. CVV")
-            opcion = input("Seleccione una opción: ")
+            opcion = input("\nSeleccione una opción: ")
             if opcion != "1" and opcion != "2" and opcion != "3":
                 print("Opción no válida")
             else:
-                dato = input("Ingrese el nuevo dato: ")
+                dato = input("\nIngrese el nuevo dato: ")
                 if opcion == "1":
                     tipo = "numero"
                 elif opcion == "2":
@@ -73,11 +73,11 @@ class UI_Pago:
     '''
     def seleccionar_tarjeta(self, tarjetas):
         while True:
-            opcion = input("Seleccione una tarjeta: ")
+            opcion = input("\nSeleccione una tarjeta: ")
             if opcion.isdigit() and int(opcion) > 0 and int(opcion) < len(tarjetas) + 1:
                 return int(opcion)-1 # Regresamos el indice de la tarjeta seleccionada
             else:
-                print("Opción no válida")
+                print("\nOpción no válida")
 
     '''
     Metodo que modifica una tarjeta bancaria
@@ -86,18 +86,18 @@ class UI_Pago:
         tarjetas = self.controlador.obtener_tarjetas_bancarias()
         if tarjetas:
             self.mostrar_tarjetas_bancarias()
-            print("Seleccione la tarjeta que desea modificar")
+            print("\nSeleccione la tarjeta que desea modificar")
             tarjeta_seleccionada = self.seleccionar_tarjeta(tarjetas)
             tipo, dato = self.solicitar_nuevo_dato()
             respuesta = self.controlador.enviar_datos_bancarios_modificar(tarjeta_seleccionada, tipo, dato)
             if respuesta:
-                print("Tarjeta modificada exitosamente")
+                print("\nTarjeta modificada exitosamente")
             else:
-                print("Error al modificar tarjeta")
+                print("\nError al modificar tarjeta")
                 print("Regresando al menú principal")
                 return
         else:
-            print("No hay tarjetas bancarias registradas")
+            print("\nNo hay tarjetas bancarias registradas")
 
 
     '''
@@ -106,7 +106,7 @@ class UI_Pago:
     def mostrar_tarjetas_bancarias(self):
         tarjetas = self.controlador.obtener_tarjetas_bancarias()
         if tarjetas:
-            print("Tarjetas Bancarias")
+            print("\n--Tarjetas Bancarias--\n")
             for i, tarjeta in enumerate(tarjetas):
                 print("Tarjeta no. ", i+1)
                 print("Tipo: ", tarjeta.get_tipo())
@@ -115,7 +115,7 @@ class UI_Pago:
                 print("CVV: ", tarjeta.get_cvv())
                 print("----------------------------")
         else:
-            print("No hay tarjetas bancarias registradas")
+            print("\nNo hay tarjetas bancarias registradas")
 
     '''
     Metodo que muestra UI para agregar tarjeta bancaria
@@ -126,10 +126,10 @@ class UI_Pago:
             numero, fecha_vencimiento, cvv = self.recibir_datos_tarjeta()
             respuesta = self.controlador.enviar_datos_bancarios_agregar(tipo_tarjeta, numero, fecha_vencimiento, cvv)
             if respuesta:
-                print("Tarjeta agregada exitosamente")
+                print("\nTarjeta agregada exitosamente")
                 break
             else:
-                print("Datos no válidos")
+                print("\nDatos no válidos")
                 print("Quiere intentar de nuevo? (s/n)")
                 opcion = input("Seleccione una opción: ")
                 if opcion.lower() == "n":
@@ -140,7 +140,7 @@ class UI_Pago:
     Metodo que recibe los datos de una tarjeta bancaria
     '''
     def recibir_datos_tarjeta(self):
-        print("Ingrese los datos de la tarjeta")
+        print("\nngrese los datos de la tarjeta")
         numero = input("Número de tarjeta: ")
         fecha_vencimiento = input("Fecha de vencimiento: ")
         cvv = input("CVV: ")
@@ -149,7 +149,7 @@ class UI_Pago:
 
     def seleccion_tipo_tarjeta(self):
         while True:
-            print("Seleccione el tipo de tarjeta")
+            print("\nSeleccione el tipo de tarjeta")
             print("1. Tarjeta de Crédito")
             print("2. Tarjeta de Débito")
             opcion = input("Seleccione una opción: ")
@@ -158,4 +158,4 @@ class UI_Pago:
             elif opcion == "2":
                 return "debito"
             else:
-                print("Opción no válida")
+                print("\nOpción no válida")
