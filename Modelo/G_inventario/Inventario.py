@@ -10,7 +10,7 @@ class Inventario:
         self.inicializar_inventario()
         
 
-        '''
+    '''
     Metodo que crea una instancia de la clase Session si no existe una ya creada.
     En caso de que ya exista una instancia, regresa la instancia ya creada.
     '''

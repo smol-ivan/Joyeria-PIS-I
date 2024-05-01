@@ -52,3 +52,6 @@ class GestorCatalogo():
     '''
     def solicitar_catalogo(self, tipo_producto):
         return self.tabla_catalogo.obtener_catalogo(tipo_producto)
+    
+    def recibir_dato_busqueda(self, dato):
+        return self.tabla_catalogo.buscar_producto(dato)

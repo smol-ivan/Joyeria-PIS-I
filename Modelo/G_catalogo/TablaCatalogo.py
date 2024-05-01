@@ -23,3 +23,14 @@ class TablaCatalogo():
 
     def obtener_catalogo(self, tipo_producto):
         return self.catalogos[tipo_producto]
+    
+    '''
+    Metodo que regresa una lista de productos que coinciden con el dato de busqueda
+    '''
+    def buscar_producto(self, dato):
+        productos = []
+        for catalogo in self.catalogos.values():
+            for producto in catalogo.obtener_productos():
+                if producto.get_nombre().lower() == dato.lower() or producto.get_marca().lower() == dato.lower() or producto.get_material().lower() == dato.lower() or producto.get_color().lower() == dato.lower() or producto.get_piedra().lower() == dato.lower():
+                    productos.append(producto)
+        return productos
