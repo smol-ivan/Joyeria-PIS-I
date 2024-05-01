@@ -25,26 +25,24 @@ class UI_Principal:
     '''
     def menu_principal(self):
         while True:
-            print("Bienvenido a la tienda en línea")
+            print("\n~~ Bienvenido a la tienda en línea ~~\n")
             print("1. Iniciar sesión")
             print("2. Registrarse")
             print("3. Entrar como invitado")
             print("4. Salir")
-            opcion = input("Seleccione una opción: ")
+            opcion = input("\nSeleccione una opción: ")
             if opcion == "1":
                 self.usuario.iniciar_sesion()
                 self.desplegar_menu_usuario()
             elif opcion == "2":
                 self.usuario.registrarse()
             elif opcion == "3":
-                # self.catalogo.mostrar_catalogo()
-                print("No implementado")
-                print("Regresando al menú principal")
+                self.catalogo.menu_catalogo()
             elif opcion == "4":
-                print("Saliendo de la tienda en línea")
+                print("\nSaliendo de la tienda en línea")
                 exit()
             else:
-                print("Opción no válida")
+                print("\nOpción no válida")
 
     '''
     Metodo para seleccionar que tipo de menu desplegar
@@ -63,7 +61,7 @@ class UI_Principal:
     '''
     def menu_administrador(self):
         while True:
-            print("Menú de administrador")
+            print("\n=== Menú Administrador ===\n")
             print("1. Inventario")
             print("2. Usuario")
             print("3. Ganancia")
@@ -74,20 +72,20 @@ class UI_Principal:
             elif opcion == "2":
                 self.usuario.menu_cuenta_administrador()
             elif opcion == "3":
-                print("No implementado")
+                print("\nNo implementado")
                 print("Regresando al menú principal")
             elif opcion == "4":
-                print("Saliendo de la tienda en línea")
+                print("\nSaliendo de la tienda en línea")
                 exit()
             else:
-                print("Opción no válida")
+                print("\nOpción no válida")
 
     '''
     Metodo que despliegua menu principal para miembros
     '''
     def menu_miembro(self):
         while True:
-            print("Menú de miembro")
+            print("\n=== Menú Miembro ===\n")
             print("1. Catálogo")
             print("2. Datos de envío")
             print("3. Pago")
@@ -95,7 +93,7 @@ class UI_Principal:
             print("5. Carrito")
             print("6. Comprar")
             print("7. Salir")
-            opcion = input("Seleccione una opción: ")
+            opcion = input("\nSeleccione una opción: ")
             if opcion == "1":
                 self.catalogo.menu_catalogo()
             elif opcion == "2":
@@ -107,17 +105,17 @@ class UI_Principal:
                 if not self.session.esta_autenticado():
                     break
             elif opcion == "5":
-                print("No implementado")
+                print("\nNo implementado")
                 print("Regresando al menú principal")
             elif opcion == "6":
-                print("No implementado")
+                print("\nNo implementado")
                 print("Regresando al menú principal")
             elif opcion == "7":
-                print("Saliendo de la tienda en línea")
+                print("\nSaliendo de la tienda en línea")
                 print("Gracias por visitarnos")
                 exit()
             else:
-                print("Opción no válida")
+                print("\nOpción no válida")
 
     
     """

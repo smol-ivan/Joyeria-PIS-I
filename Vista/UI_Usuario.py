@@ -15,7 +15,7 @@ class UI_Usuario:
     Metodo donde se ingresan los datos de inicio de sesion
     '''
     def ingreso_datos_inicio_sesion(self):
-        correo = input("Correo: ")
+        correo = input("\nCorreo: ")
         contraseña = input("Contraseña: ")
         return correo, contraseña
     
@@ -24,14 +24,14 @@ class UI_Usuario:
     '''
     def iniciar_sesion(self):
         while True:
-            print("Iniciar sesión")
+            print("\nIniciar sesión")
             correo, contraseña = self.ingreso_datos_inicio_sesion()
             respuesta_validacion = self.envia_datos_inicio_sesion(correo, contraseña)
             if respuesta_validacion:
-                print("Inicio de sesión correcto")
+                print("\nInicio de sesión correcto")
                 break
             else:
-                print("Correo o contraseña incorrectos")
+                print("\nCorreo o contraseña incorrectos")
                 print("¿Desea intentar de nuevo?")
                 respuesta = input("S/N: ")
                 if respuesta.lower() == "n":
@@ -47,9 +47,9 @@ class UI_Usuario:
     Metodo que recibe los datos de registro
     '''
     def ingreso_datos_registro(self):
-        nombre = input("Nombre: ")
-        correo = input("Correo: ")
-        contraseña = input("Contraseña: ")
+        nombre = input("\nNombre: ")
+        correo = input("\nCorreo: ")
+        contraseña = input("\nContraseña: ")
         return nombre, correo, contraseña
         
     '''
@@ -57,20 +57,20 @@ class UI_Usuario:
     '''
     def registrarse(self):
         while True:
-            print("Registrarse")
+            print("\nRegistrarse")
             print("Desea continuar con el proceso de registro?")
             print("S/N:")
-            respuesta = input()
+            respuesta = input("\n")
             if respuesta.lower() == "n":
                 break
             nombre, correo, contraseña = self.ingreso_datos_registro()
             respuesta_validacion = self.envia_datos_registro(nombre, correo, contraseña)
             if respuesta_validacion:
-                print("Registro exitoso")
+                print("\nRegistro exitoso")
                 print("Por favor inicie sesión")
                 break
             else:
-                print("Correo ya registrado")
+                print("\nCorreo ya registrado")
                 print("¿Desea intentar de nuevo?")
                 respuesta = input("S/N: ")
                 if respuesta.lower() == "n":
@@ -87,12 +87,12 @@ class UI_Usuario:
     '''
     def menu_cuenta_administrador(self):
         while True:
-            print("Menú de cuenta de usuario")
+            print("\n=== Menú Administrador - Cuenta ===\n")
             print("1. Modificar cuenta Administrador")
             print("2. Ver datos cuenta Administrador")
             print("3. Eliminar Miembro")
             print("4. Salir")
-            opcion = input("Seleccione una opción: ")
+            opcion = input("\nSeleccione una opción: ")
             if opcion == "1":
                 self.modificar_usuario_administrador()
             elif opcion == "2":
@@ -102,20 +102,20 @@ class UI_Usuario:
             elif opcion == "4":
                 break
             else:
-                print("Opción no válida")
+                print("\nOpción no válida")
 
     '''
     Metodo que despliega UI para eliminar cuenta de miembro
     '''
     def eliminar_cuenta_miembro(self):
         while True:
-            print("Eliminar cuenta de miembro")
+            print("\n--Eliminar cuenta de miembro--\n")
             respuesta = self.controlador_usuario.boton_eliminar_cuenta_miembro()
             if respuesta:
-                print("Cuenta eliminada")
+                print("\nCuenta eliminada")
                 break
             else:
-                print("Operacion cancelada")
+                print("\nOperacion cancelada")
                 break
     
     '''
@@ -123,12 +123,12 @@ class UI_Usuario:
     '''
     def menu_cuenta_miembro(self):
         while True:
-            print("Menú de cuenta de usuario")
+            print("\n=== Menú Cuenta Usuario ===\n")
             print("1. Modificar usuario")
             print("2. Ver datos de usuarios")
             print("3. Eliminar usuario")
             print("4. Salir")
-            opcion = input("Seleccione una opción: ")
+            opcion = input("\nSeleccione una opción: ")
             if opcion == "1":
                 self.modificar_usuario_miembro()
             elif opcion == "2":
@@ -141,16 +141,16 @@ class UI_Usuario:
             elif opcion == "4":
                 break
             else:
-                print("Opción no válida")
+                print("\nOpción no válida")
 
     '''
     Metodo que recibe confirmacion de eliminacion de usuario
     '''
     def obtener_confirmacion_eliminacion_usuario(self):
-        print("¿Está seguro que desea eliminar el usuario?")
+        print("\n¿Está seguro que desea eliminar el usuario?")
         print("Esta acción no se puede deshacer")
         print("S/N")
-        respuesta = input()
+        respuesta = input("\n")
         return respuesta.lower() == "s"
 
     '''
@@ -161,10 +161,10 @@ class UI_Usuario:
             confirmacion = self.obtener_confirmacion_eliminacion_usuario()
             if confirmacion:
                 self.controlador_usuario.boton_eliminar_cuenta()
-                print("Usuario eliminado")
+                print("\nUsuario eliminado")
                 break
             else:
-                print("Operacion cancelada")
+                print("\nOperacion cancelada")
                 break
 
 
@@ -189,21 +189,21 @@ class UI_Usuario:
     '''
     def modificar_usuario_administrador(self):
         while True:
-            print("Seleccione dato a modificar de la cuenta")
+            print("\nSeleccione dato a modificar de la cuenta")
             print("1. Nombre")
             print("2. Correo")
             print("3. Contraseña")
             print("4. Regresar al menú principal")
-            opcion = input("Seleccione una opción: ")
+            opcion = input("\nSeleccione una opción: ")
             if opcion == "4":
                 break
-            dato = input("Ingrese el nuevo dato: ")
+            dato = input("\nIngrese el nuevo dato: ")
             respuesta = self.envia_datos_modificacion(int(opcion), dato)
             if respuesta:
-                print("Modificación exitosa")
+                print("\nModificación exitosa")
                 break
             else:
-                print("Error al modificar")
+                print("\nError al modificar")
                 print("¿Desea intentar de nuevo?")
                 respuesta = input("S/N: ")
                 if respuesta.lower() == "n":
@@ -214,7 +214,7 @@ class UI_Usuario:
     '''
     def modificar_usuario_miembro(self):
         while True:
-            print("Seleccione dato a modificar de la cuenta")
+            print("\nSeleccione dato a modificar de la cuenta")
             print("1. Nombre")
             print("2. Correo")
             print("3. Contraseña")
@@ -222,16 +222,16 @@ class UI_Usuario:
             print("5. Genero")
             print("6. Pais")
             print("7. Regresar al menú principal")
-            opcion = input("Seleccione una opción: ")
+            opcion = input("\nSeleccione una opción: ")
             if opcion == "7":
                 break
-            dato = input("Ingrese el nuevo dato: ")
+            dato = input("\nIngrese el nuevo dato: ")
             respuesta = self.envia_datos_modificacion(int(opcion), dato)
             if respuesta:
                 print("Modificación exitosa")
                 break
             else:
-                print("Error al modificar")
+                print("\nError al modificar")
                 print("¿Desea intentar de nuevo?")
                 respuesta = input("S/N: ")
                 if respuesta.lower() == "n":

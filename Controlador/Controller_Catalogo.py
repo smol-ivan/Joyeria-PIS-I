@@ -8,4 +8,6 @@ class Controller_Catalogo:
         catalogo = self.gestor_catalogo.solicitar_catalogo(tipo_producto)
         return catalogo
     
-    
+    def boton_buscar_producto(self, dato):
+        productos = self.gestor_catalogo.recibir_dato_busqueda(dato)
+        return productos
