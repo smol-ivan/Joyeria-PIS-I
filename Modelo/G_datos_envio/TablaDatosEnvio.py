@@ -37,35 +37,21 @@ class TablaDatosEnvio:
             # Si el usuario no tiene datos de envío
             return []
 
-    def modificar_dato(self, opcion, dato):
+    def modificar_dato(self, tipo_dato, dato, indice):
         # Obtener el ID del usuario actual
         id_usuario = self.session.obtener_id_usuario()
         # Obtener los datos de envío para el usuario actual
         dato_envio = self.tabla_datos_envio[id_usuario]
-
-        if datos_envio:
-
-            # Toma el primer dato de envío para modificar
-             # Asegúrate de acceder al objeto correcto
-
-            # Modificar el atributo según la opción
-            if opcion == "1":
-                # Imprimir el nombre usando el getter}
-
-                print(dato_envio)
-
-            '''
-            elif opcion == "2":
-                dato_envio.set_direccion(dato)  # Usa el setter para modificar
-            elif opcion == "3":
-                dato_envio.set_ciudad(dato)
-            elif opcion == "4":
-                dato_envio.set_codigo_postal(dato)
-            elif opcion == "5":
-                dato_envio.set_pais(dato)
-
-            return True  # Indicar que la modificación fue exitosa
-        else:
-            return False  # Si no hay datos de envío para modificar
- '''
+        # Modificar el dato de envío
+        if tipo_dato == "nombre":
+            dato_envio[indice].set_nombre(dato)
+        elif tipo_dato == "direccion":
+            dato_envio[indice].set_direccion(dato)
+        elif tipo_dato == "ciudad":
+            dato_envio[indice].set_ciudad(dato)
+        elif tipo_dato == "cp":
+            dato_envio[indice].set_codigo_postal(dato)
+        elif tipo_dato == "pais":
+            dato_envio[indice].set_pais(dato)
+        return True
 #correo1@ejemplo
