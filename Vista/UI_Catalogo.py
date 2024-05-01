@@ -40,10 +40,10 @@ class UI_Catalogo:
             print("\n--Buscar producto--\n")
             dato = self.solicitar_dato_busqueda()
             if dato:
-                productos = self.controller_catalogo.boton_buscar_producto(dato)
-                if productos:
-                    for producto in productos:
-                        print(producto)
+                catalogo = self.controller_catalogo.boton_buscar_producto(dato)
+                if catalogo.obtener_productos() != []:
+                    print("\nProductos encontrados:")
+                    print(catalogo)
                 else:
                     print("\nNo se encontraron productos")
             else:
@@ -81,8 +81,6 @@ class UI_Catalogo:
                 print("\nOpcion no valida")
 
     def mostrar_catalogo(self, tipo_producto):
-        print(f"Catalogo de {tipo_producto}")
+        print(f"\n ~~ Catalogo de {tipo_producto} ~~\n")
         catalogo = self.controller_catalogo.boton_mostrar_catalogo(tipo_producto)
-        productos = catalogo.obtener_productos()
-        for producto in productos:
-            print(producto)
+        print(catalogo)
