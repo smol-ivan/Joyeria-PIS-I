@@ -1,8 +1,9 @@
 from Modelo.G_inventario.Producto import Aretes, Collares, Anillos, Piercings, Pulseras, Dijes
+from Controlador.Controller_Inventario import Controller_Inventario
 
 class UI_Inventario:
-    def __init__(self, controlador):
-        self.controlador = controlador
+    def __init__(self):
+        self.controlador = Controller_Inventario()
 
     def menu_inventario(self):
         while True:

@@ -12,13 +12,8 @@ class UI_Principal:
         self.datos_envio = UI_DatosEnvio()
         self.pago = UI_Pago()
         self.catalogo = UI_Catalogo()
-        self.controlador_inventario = Controller_Inventario()
-        self.inventario = UI_Inventario(self.controlador_inventario)
+        self.inventario = UI_Inventario()
         self.session = Session()
-
-    """
-    Trabajo Ivan
-    """
 
     '''
     Metodo que despliega el menu principal y redirige a las opciones seleccionadas
@@ -116,16 +111,3 @@ class UI_Principal:
                 exit()
             else:
                 print("\nOpción no válida")
-
-    
-    """
-    Trabajo Mariana
-    """
-
-    """
-    Trabajo Karla
-    """
-
-    """
-    Trabajo Gabriel
-    """
