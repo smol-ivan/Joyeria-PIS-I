@@ -1,11 +1,9 @@
 from Modelo.G_inventario.GestorInventario import GestorInventario
-from Vista.UI_Inventario import UI_Inventario
 
 class Controller_Inventario:
     def __init__(self):
         # Inicialización del controlador con instancias del gestor de inventario y la interfaz de usuario
         self.GestorInventario = GestorInventario()
-        self.UI_Inventario = UI_Inventario(self)
 
     def iniciar_aplicacion(self):
         # Método para iniciar la aplicación, mostrando el menú principal de la interfaz de usuario
