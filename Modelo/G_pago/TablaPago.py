@@ -3,10 +3,10 @@ from Modelo.G_usuario.Session import Session
 class TablaPago:
     def __init__(self):
         '''
-        Formato diccionario de datos de envío
+        Formato diccionario de datos de pago
         {
-            id_usuario1: [DatoEnvio1, DatoEnvio2, DatoEnvio3],
-            id_usuario2: [DatoEnvio1, DatoEnvio2, DatoEnvio3]
+            id_usuario1: [Tarjeta1, Tarjeta2, Tarjeta3],
+            id_usuario2: [Tarjeta1, Tarjeta2, Tarjeta3]
         }
         '''
         self.__pagos = {}
