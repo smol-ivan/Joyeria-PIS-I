@@ -4,7 +4,7 @@ from .UI_Pago import UI_Pago
 from .UI_Catalogo import UI_Catalogo
 from .UI_Inventario import UI_Inventario
 from Modelo.G_usuario.Session import Session
-from Controlador.Controller_Inventario import Controller_Inventario
+from .UI_Ganancia import UI_Ganancia
 
 class UI_Principal:
     ''' Esta clase es la encargada de desplegar el menu principal de la tienda en línea
@@ -18,6 +18,7 @@ class UI_Principal:
         self.catalogo = UI_Catalogo()
         self.inventario = UI_Inventario()
         self.session = Session()
+        self.ganancia = UI_Ganancia()
 
     def menu_principal(self):
         ''' Metodo que despliega el menu principal y redirige a las opciones seleccionadas
@@ -68,8 +69,7 @@ class UI_Principal:
             elif opcion == "2":
                 self.usuario.menu_cuenta_administrador()
             elif opcion == "3":
-                print("\nNo implementado")
-                print("Regresando al menú principal")
+                self.ganancia.menu_ganancia()
             elif opcion == "4":
                 print("\nSaliendo de la tienda en línea")
                 exit()
