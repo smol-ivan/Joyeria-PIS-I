@@ -7,6 +7,11 @@ class GestorCarrito:
         self.carrito = Carrito()
         self.tabla_carritos = TablaCarritos()
 
+    def guardar_carrito(self) -> None:
+        '''Este metodo guarda el carrito de compras en la tabla de carritos
+        '''        
+        self.tabla_carritos.guardar_carrito(self.carrito)
+
     def obtener_carrito(self) -> Carrito:
         '''Este metodo obtiene el carrito de compras
 
@@ -38,6 +43,7 @@ class GestorCarrito:
         if not producto:
             return False
         self.carrito.agregar_producto(producto, cantidad)
+        self.guardar_carrito()
         return True
 
     def eliminar_producto(self, modelo: str) -> bool:
@@ -49,4 +55,8 @@ class GestorCarrito:
         Returns:
             bool: True si el producto fue eliminado, False si no
         '''        
-        return self.carrito.eliminar_producto(modelo)
+        if not self.carrito:
+            return False
+        self.carrito.eliminar_producto(modelo)
+        self.guardar_carrito()
+        return True
