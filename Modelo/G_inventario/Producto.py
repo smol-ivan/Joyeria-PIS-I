@@ -1,40 +1,40 @@
 class Producto:
-    def __init__(self, nombre, modelo, marca, stock, material, color, piedra, precio):
+    def __init__(self, nombre:str, modelo:str, marca:str, stock:str, material:str, color:str, piedra:str, precio:int):
         # Inicializa los atributos del producto
-        self.nombre = nombre
-        self.modelo = modelo
-        self.marca = marca
-        self.stock = stock
-        self.material = material
-        self.color = color
-        self.piedra = piedra
-        self.precio = precio
+        self.nombre: str = nombre
+        self.modelo: str = modelo
+        self.marca: str = marca
+        self.stock: str = stock
+        self.material: str = material
+        self.color: str = color
+        self.piedra: str = piedra
+        self.precio: int = precio
 
     '''
     Metodos get 
     '''
-    def get_nombre(self):
+    def get_nombre(self) -> str:
         return self.nombre
     
-    def get_modelo(self):
+    def get_modelo(self) -> str:
         return self.modelo
     
-    def get_marca(self):
+    def get_marca(self) -> str:
         return self.marca
     
-    def get_stock(self):
+    def get_stock(self) -> str:
         return self.stock
     
-    def get_material(self):
+    def get_material(self) -> str:
         return self.material
     
-    def get_color(self):
+    def get_color(self) -> str:
         return self.color
     
-    def get_piedra(self):
+    def get_piedra(self) -> str:
         return self.piedra
     
-    def get_precio(self):
+    def get_precio(self) -> int:
         return self.precio
     
     '''

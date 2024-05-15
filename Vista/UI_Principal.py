@@ -7,7 +7,11 @@ from Modelo.G_usuario.Session import Session
 from Controlador.Controller_Inventario import Controller_Inventario
 
 class UI_Principal:
+    ''' Esta clase es la encargada de desplegar el menu principal de la tienda en línea
+    '''    
     def __init__(self):
+        ''' Constructor de la clase UI_Principal. Inicializa las instancias de las clases UI's que se van a utilizar
+        '''        
         self.usuario = UI_Usuario()
         self.datos_envio = UI_DatosEnvio()
         self.pago = UI_Pago()
@@ -15,10 +19,9 @@ class UI_Principal:
         self.inventario = UI_Inventario()
         self.session = Session()
 
-    '''
-    Metodo que despliega el menu principal y redirige a las opciones seleccionadas
-    '''
     def menu_principal(self):
+        ''' Metodo que despliega el menu principal y redirige a las opciones seleccionadas
+        '''        
         while True:
             print("\n~~ Bienvenido a la tienda en línea ~~\n")
             print("1. Iniciar sesión")
@@ -39,10 +42,9 @@ class UI_Principal:
             else:
                 print("\nOpción no válida")
 
-    '''
-    Metodo para seleccionar que tipo de menu desplegar
-    '''
     def desplegar_menu_usuario(self):
+        '''Metodo para seleccionar que tipo de menu desplegar
+        '''
         if not self.session.esta_autenticado():
             print("No se ha iniciado sesión")
             return
@@ -51,10 +53,9 @@ class UI_Principal:
         else:
             self.menu_miembro()
 
-    '''
-    Metodo que despliega menu principal para administradores
-    '''
     def menu_administrador(self):
+        '''Metodo que despliega menu principal para administradores
+        '''
         while True:
             print("\n=== Menú Administrador ===\n")
             print("1. Inventario")
@@ -75,10 +76,9 @@ class UI_Principal:
             else:
                 print("\nOpción no válida")
 
-    '''
-    Metodo que despliegua menu principal para miembros
-    '''
     def menu_miembro(self):
+        '''Metodo que despliegua menu principal para miembros
+        '''
         while True:
             print("\n=== Menú Miembro ===\n")
             print("1. Catálogo")

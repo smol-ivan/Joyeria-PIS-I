@@ -1,4 +1,5 @@
 from Controlador.Controller_Catalogo import Controller_Catalogo
+from Vista.UI_Carrito import UI_Carrito
 
 class UI_Catalogo:
     def __init__(self):
@@ -61,7 +62,8 @@ class UI_Catalogo:
             print("4. Piercings")
             print("5. Pulseras")
             print("6. Dijes")
-            print("7. Regresar al menu principal")
+            print("7. Abrir carrito")
+            print("8. Regresar al menu principal")
             opcion = input("\nSeleccione una opcion: ")
             if opcion == "1":
                 self.mostrar_catalogo("Aretes")
@@ -76,6 +78,11 @@ class UI_Catalogo:
             elif opcion == "6":
                 self.mostrar_catalogo("Dijes")
             elif opcion == "7":
+                print("\nAbriendo carrito")
+                carrito = UI_Carrito()
+                carrito.menu_carrito()
+            elif opcion == "8":
+                print("\nRegresando al menu principal")
                 break
             else:
                 print("\nOpcion no valida")
