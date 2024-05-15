@@ -155,13 +155,11 @@ class UI_Usuario:
                 print("\nOperacion cancelada")
                 break
 
-
     def ver_datos_usuario(self):
         '''Metodo que el controlador recibe como evento para mostrar los datos del usuario. Espera recibir un diccionario con los datos del usuario
         '''
         datos = self.controlador_usuario.solicitar_datos_usuario()
         self.mostrar_datos_usuario(datos)
-
 
     def mostrar_datos_usuario(self, datos):
         '''Metodo que despliega los datos del usuario, recibe un diccionario con los datos del usuario
