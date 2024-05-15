@@ -1,4 +1,4 @@
-from Modelo.G_inventario.Producto import Aretes, Collares, Anillos, Piercings, Pulseras, Dijes
+from Modelo.G_inventario.Producto import Aretes, Collares, Anillos, Piercings, Pulseras, Dijes, Producto
 
 class Inventario:
     _instance = None
@@ -6,7 +6,7 @@ class Inventario:
     def __init__(self):
         # Inicializa el diccionario de productos donde se almacenará el inventario
         self.productos = {}
-        self.productos_catalogo = []
+        self.productos_catalogo: list[Producto] = []
         self.inicializar_inventario()
         
 
@@ -82,3 +82,17 @@ class Inventario:
     
     def obtener_lista_productos(self):
         return self.productos_catalogo
+    
+    def obtener_producto(self, identificador: str) -> Producto:
+        '''Este metodo obtiene un producto del catalogo dado un identificador
+
+        Args:
+            identificador (str): Nombre o modelo del producto
+
+        Returns:
+            Producto: Producto encontrado en el catalogo
+        '''        
+        for producto in self.productos_catalogo:
+            if producto.get_nombre().lower() == identificador or producto.get_modelo().lower() == identificador:
+                return producto
+        return None

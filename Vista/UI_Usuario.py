@@ -4,25 +4,22 @@ class UI_Usuario:
     def __init__(self):
         self.controlador_usuario = Controller_Usuario()
 
-    '''
-    Metodo que envia los datos de inicio de sesion al gestor de usuario
-    '''
     def envia_datos_inicio_sesion(self, correo, contraseña):
+        '''Metodo que envia los datos de inicio de sesion al gestor de usuario
+        '''
         auth = self.controlador_usuario.enviar_datos_iniciar_sesion(correo, contraseña)
         return auth
     
-    '''
-    Metodo donde se ingresan los datos de inicio de sesion
-    '''
     def ingreso_datos_inicio_sesion(self):
+        '''Metodo donde se ingresan los datos de inicio de sesion
+        '''
         correo = input("\nCorreo: ")
         contraseña = input("Contraseña: ")
         return correo, contraseña
     
-    '''
-    Metodo despliegua UI para iniciar sesion
-    '''
     def iniciar_sesion(self):
+        '''Metodo despliegua UI para iniciar sesion
+        '''
         while True:
             print("\nIniciar sesión")
             correo, contraseña = self.ingreso_datos_inicio_sesion()
@@ -37,25 +34,22 @@ class UI_Usuario:
                 if respuesta.lower() == "n":
                     break
 
-    '''
-    Metodo que envia los datos de registro al gestor de usuario
-    '''
     def envia_datos_registro(self, nombre, correo, contraseña):
+        '''Metodo que envia los datos de registro al gestor de usuario
+        '''
         return self.controlador_usuario.enviar_datos_registro_usuario(nombre, correo, contraseña)
     
-    '''
-    Metodo que recibe los datos de registro
-    '''
     def ingreso_datos_registro(self):
+        '''Metodo que recibe los datos de registro
+        '''
         nombre = input("\nNombre: ")
         correo = input("\nCorreo: ")
         contraseña = input("\nContraseña: ")
         return nombre, correo, contraseña
         
-    '''
-    Metodo que despliega UI para registrarse
-    '''
     def registrarse(self):
+        '''Metodo que despliega UI para registrarse
+        '''
         while True:
             print("\nRegistrarse")
             print("Desea continuar con el proceso de registro?")
@@ -76,16 +70,14 @@ class UI_Usuario:
                 if respuesta.lower() == "n":
                     break
 
-    '''
-    Metodo que envia los datos de modificacion al gestor de usuario
-    '''
     def envia_datos_modificacion(self, opcion, dato):
+        '''Metodo que envia los datos de modificacion al gestor de usuario
+        '''
         return self.controlador_usuario.enviar_datos_modificacion_usuario(opcion, dato)
     
-    '''
-    Metodo que muestra el mnenu cuenta Administrador
-    '''
     def menu_cuenta_administrador(self):
+        '''Metodo que muestra el mnenu cuenta Administrador
+        '''
         while True:
             print("\n=== Menú Administrador - Cuenta ===\n")
             print("1. Modificar cuenta Administrador")
@@ -104,10 +96,9 @@ class UI_Usuario:
             else:
                 print("\nOpción no válida")
 
-    '''
-    Metodo que despliega UI para eliminar cuenta de miembro
-    '''
     def eliminar_cuenta_miembro(self):
+        '''Metodo que despliega UI para eliminar cuenta de miembro
+        '''
         while True:
             print("\n--Eliminar cuenta de miembro--\n")
             respuesta = self.controlador_usuario.boton_eliminar_cuenta_miembro()
@@ -118,10 +109,9 @@ class UI_Usuario:
                 print("\nOperacion cancelada")
                 break
     
-    '''
-    Metodo que muestra el menu cuenta Miembro
-    '''
     def menu_cuenta_miembro(self):
+        '''Metodo que muestra el menu cuenta Miembro
+        '''
         while True:
             print("\n=== Menú Cuenta Usuario ===\n")
             print("1. Modificar usuario")
@@ -143,20 +133,18 @@ class UI_Usuario:
             else:
                 print("\nOpción no válida")
 
-    '''
-    Metodo que recibe confirmacion de eliminacion de usuario
-    '''
     def obtener_confirmacion_eliminacion_usuario(self):
+        '''Metodo que recibe confirmacion de eliminacion de usuario
+        '''
         print("\n¿Está seguro que desea eliminar el usuario?")
         print("Esta acción no se puede deshacer")
         print("S/N")
         respuesta = input("\n")
         return respuesta.lower() == "s"
 
-    '''
-    Metodo que despliega UI para eliminar la propia cuenta
-    '''
     def eliminar_cuenta(self):
+        '''Metodo que despliega UI para eliminar la propia cuenta
+        '''
         while True:
             confirmacion = self.obtener_confirmacion_eliminacion_usuario()
             if confirmacion:
@@ -168,26 +156,22 @@ class UI_Usuario:
                 break
 
 
-    '''
-    Metodo que el controlador recibe como evento para mostrar los datos del usuario
-    Espera recibir un diccionario con los datos del usuario
-    '''
     def ver_datos_usuario(self):
+        '''Metodo que el controlador recibe como evento para mostrar los datos del usuario. Espera recibir un diccionario con los datos del usuario
+        '''
         datos = self.controlador_usuario.solicitar_datos_usuario()
         self.mostrar_datos_usuario(datos)
 
 
-    '''
-    Metodo que despliega los datos del usuario, recibe un diccionario con los datos del usuario
-    '''
     def mostrar_datos_usuario(self, datos):
+        '''Metodo que despliega los datos del usuario, recibe un diccionario con los datos del usuario
+        '''
         for key, value in datos.items():
             print(f"{key}: {value}")
 
-    '''
-    Metodo que despliega UI de modificacion de usuario para el administrador
-    '''
     def modificar_usuario_administrador(self):
+        '''Metodo que despliega UI de modificacion de usuario para el administrador
+        '''
         while True:
             print("\nSeleccione dato a modificar de la cuenta")
             print("1. Nombre")
@@ -209,10 +193,9 @@ class UI_Usuario:
                 if respuesta.lower() == "n":
                     break
             
-    '''
-    Metodo que despliega UI de modificacion de usuario para el miembro
-    '''
     def modificar_usuario_miembro(self):
+        '''Metodo que despliega UI de modificacion de usuario para el miembro
+        '''
         while True:
             print("\nSeleccione dato a modificar de la cuenta")
             print("1. Nombre")
