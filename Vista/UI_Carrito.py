@@ -57,21 +57,20 @@ class UI_Carrito:
         while True:
             print("\n--Eliminar producto--\n")
             carrito = self.controller.obtener_carrito()
-            if carrito:
-                print("\nProductos en el carrito:")
-                for producto in carrito:
-                    print(f"Producto: {producto['nombre']} Precio: {producto['precio']}")
-                modelo = input("\nIngrese el modelo del producto a eliminar: ")
-                if modelo:
-                    if self.controller.eliminar_producto(modelo):
-                        print("\nProducto eliminado del carrito")
-                    else:
-                        print("\nProducto no encontrado")
-                else:
-                    print("\nOperacion cancelada")
-            else:
+            if not carrito:
                 print("\nCarrito vacío")
                 break
+            print("\nProductos en el carrito:")
+            for producto in carrito:
+                print(f"Producto: {producto['nombre']} Precio: {producto['precio']}")
+            modelo = input("\nIngrese el modelo del producto a eliminar: ")
+            if modelo:
+                if self.controller.eliminar_producto(modelo):
+                    print("\nProducto eliminado del carrito")
+                else:
+                    print("\nProducto no encontrado")
+            else:
+                print("\nOperacion cancelada")
             opcion = input("\nDesea eliminar otro producto? (s/n): ")
             if opcion.lower() == "n":
                 break
