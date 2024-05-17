@@ -3,10 +3,10 @@ from .UI_DatosEnvio import UI_DatosEnvio
 from .UI_Pago import UI_Pago
 from .UI_Catalogo import UI_Catalogo
 from .UI_Inventario import UI_Inventario
-from Modelo.G_usuario.Session import Session
 from .UI_Ganancia import UI_Ganancia
 from .UI_Carrito import UI_Carrito
 from .UI_Compra import UI_Compra
+from Modelo.G_usuario.Session import Session
 
 class UI_Principal:
     ''' Esta clase es la encargada de desplegar el menu principal de la tienda en línea

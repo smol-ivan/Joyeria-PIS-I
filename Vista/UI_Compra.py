@@ -7,7 +7,7 @@ class UI_Compra:
         # controlador como atributo
         pass
 
-    def menu_compra(self, productos: list[dict]) -> None:
+    def menu_compra(self, productos: list[dict] = None) -> None:
         '''Metodo que despliega el menu de compras
         '''
         pass
