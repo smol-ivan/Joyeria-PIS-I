@@ -2,12 +2,12 @@ from Modelo.G_inventario.Producto import Producto
 
 class Carrito:
     def __init__(self) -> None:
-        self.productos: dict[
-            str: str,
-            str: str,
-            str: int,
-            str: int
-            ] = []
+        self.productos: list[dict[
+            "modelo": str,
+            "nombre": str,
+            "precio": int,
+            "cantidad": int
+            ]] = []
         """
         lista de productos esperados:
         productos = [
@@ -20,12 +20,12 @@ class Carrito:
         ]
         """
 
-    def agregar_producto(self, producto: Producto, cantidad: int) -> None:
+    def agregar_producto(self, producto: Producto, cantidad: str) -> None:
         '''Este metodo agrega un producto al carrito
 
         Args:
             producto (Producto): Instancia del producto a agregar
-            cantidad (int): Cantidad del producto
+            cantidad (str): Cantidad del producto
         '''        
         self.productos.append({
             "modelo": producto.get_modelo(),

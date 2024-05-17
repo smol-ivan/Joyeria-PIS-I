@@ -1,5 +1,6 @@
 from Controlador.Controller_Catalogo import Controller_Catalogo
 from Vista.UI_Carrito import UI_Carrito
+from Modelo.G_usuario.Session import Session
 
 class UI_Catalogo:
     def __init__(self):
@@ -78,9 +79,14 @@ class UI_Catalogo:
             elif opcion == "6":
                 self.mostrar_catalogo("Dijes")
             elif opcion == "7":
-                print("\nAbriendo carrito")
-                carrito = UI_Carrito()
-                carrito.menu_carrito()
+                if not Session().esta_autenticado():
+                    print("\nNo se ha iniciado sesión")
+                    print("Por favor inicie sesión para ver su carrito")
+                    break
+                else:
+                    print("\nAbriendo carrito")
+                    carrito = UI_Carrito()
+                    carrito.menu_carrito()
             elif opcion == "8":
                 print("\nRegresando al menu principal")
                 break
