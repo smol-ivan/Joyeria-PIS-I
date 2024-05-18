@@ -61,8 +61,9 @@ class UI_Carrito:
                 print("\nCarrito vacío")
                 break
             print("\nProductos en el carrito:")
-            for producto in carrito:
-                print(f"Producto: {producto['nombre']} Precio: {producto['precio']}")
+            # for producto in carrito.obtener_carrito():
+            #     print(f"Producto: {producto['nombre']} Precio: {producto['precio']}")
+            carrito.mostrar_carrito()
             modelo = input("\nIngrese el modelo del producto a eliminar: ")
             if modelo:
                 if self.controller.eliminar_producto(modelo):
