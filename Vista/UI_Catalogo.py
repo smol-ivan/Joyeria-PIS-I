@@ -5,6 +5,7 @@ from Modelo.G_usuario.Session import Session
 class UI_Catalogo:
     def __init__(self):
         self.controller_catalogo = Controller_Catalogo()
+        self.session = Session()
 
     def menu_catalogo(self):
         while True:
@@ -79,7 +80,7 @@ class UI_Catalogo:
             elif opcion == "6":
                 self.mostrar_catalogo("Dijes")
             elif opcion == "7":
-                if not Session().esta_autenticado():
+                if not self.session.esta_autenticado():
                     print("\nNo se ha iniciado sesión")
                     print("Por favor inicie sesión para ver su carrito")
                     break

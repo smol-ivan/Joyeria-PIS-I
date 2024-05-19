@@ -3,11 +3,7 @@ from Modelo.G_inventario.Producto import Producto
 class Carrito:
     def __init__(self) -> None:
         self.productos: list[dict[
-            "modelo": str,
-            "nombre": str,
-            "precio": int,
-            "cantidad": int
-            ]] = []
+            str: str]] = []
         """
         lista de productos esperados:
         productos = [
@@ -34,14 +30,14 @@ class Carrito:
             "cantidad": int(cantidad)
         })
 
-    def eliminar_producto(self, modelo: str) -> None:
+    def eliminar_producto(self, nombre: str) -> None:
         '''Este metodo elimina un producto del carrito
 
         Args:
             modelo (str): Modelo que identifica al producto
         '''        
         for producto in self.productos:
-            if producto["modelo"] == modelo:
+            if producto["nombre"].lower() == nombre.lower():
                 self.productos.remove(producto)
                 break
 
