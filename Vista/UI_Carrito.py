@@ -30,6 +30,9 @@ class UI_Carrito:
 
     def ver_carrito(self) -> None:
         carrito = self.controller.obtener_carrito()
+        if not carrito:
+            print("\nCarrito vacío")
+            return
         carrito.mostrar_carrito()
 
 

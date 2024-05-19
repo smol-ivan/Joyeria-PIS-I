@@ -18,7 +18,7 @@ class GestorCarrito:
         Returns:
             Carrito: Carrito de compras
         '''        
-        return self.carrito
+        return self.tabla_carritos.obtener_ultimo_carrito()
 
     def obtener_total(self) -> float:
         '''Este metodo obtiene el total de la compra
