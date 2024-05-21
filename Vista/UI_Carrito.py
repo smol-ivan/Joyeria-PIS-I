@@ -35,7 +35,6 @@ class UI_Carrito:
             return
         carrito.mostrar_carrito()
 
-
     def agregar_producto(self) -> None:
         '''Este metodo solicita al usuario el id/modelo/nombre del producto a agregar al carrito. Se indica la cantidad a agregar
         '''
