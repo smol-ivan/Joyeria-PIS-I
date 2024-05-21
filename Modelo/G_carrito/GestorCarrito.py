@@ -60,3 +60,9 @@ class GestorCarrito:
         self.carrito.eliminar_producto(modelo)
         self.guardar_carrito()
         return True
+    
+    def limpiar_carrito(self) -> None:
+        '''Este metodo limpia el carrito de compras
+        '''        
+        self.carrito.limpiar_carrito()
+        self.guardar_carrito()

@@ -12,6 +12,12 @@ class Carrito:
                 "nombre": "nombre",
                 "precio": 0.0,
                 "cantidad": 0
+            },
+            {
+                "modelo": "modelo",
+                "nombre": "nombre",
+                "precio": 0.0,
+                "cantidad": 0
             }
         ]
         """
@@ -70,3 +76,8 @@ class Carrito:
             print(f"\nTotal: {self.obtener_total()}")
         else:
             print("\nCarrito vacío")
+
+    def limpiar_carrito(self) -> None:
+        '''Este metodo limpia el carrito
+        '''        
+        self.productos = []

@@ -1,5 +1,9 @@
 from Modelo.G_carrito.TablaCarritos import TablaCarritos
 from Modelo.G_carrito.Carrito import Carrito
+from Modelo.G_compra.Ticket import Ticket
+from Modelo.G_compra.TablaCompra import TablaCompra
+import datetime
+from Modelo.G_usuario.Session import Session
 # importar faltantes
 
 class GestorCompra:
@@ -7,6 +11,9 @@ class GestorCompra:
     '''    
     def __init__(self) -> None:
         # atributos faltantes
+        self.__id_ticket: int = 0
+        self.tabla: TablaCompra = TablaCompra()
+        self.session: Session = Session()
         pass
 
     def obtener_carrito(self) -> Carrito:
@@ -17,3 +24,20 @@ class GestorCompra:
         '''        
         tabla: TablaCarritos = TablaCarritos()
         return tabla.obtener_ultimo_carrito()
+
+    def solicitud_compra(self) -> bool:
+        carrito: Carrito = self.obtener_carrito()
+        if not carrito:
+            return False
+        # Creacion del ticket
+        identificador = self.__id_ticket + 1
+        fecha = datetime.datetime.now()
+        ticket = Ticket(identificador, fecha)
+        # Agregar productos al ticket que son sacados del carrito
+        for producto in carrito:
+            ticket.agregar_producto(producto['modelo'], producto['cantidad'], producto['precio'])
+        # Guardar ticket
+        id_usuario = self.session.obtener_id_usuario()
+        self.tabla.agregar_ticket(ticket, id_usuario)
+        # limpiar carrito de compra
+        return True

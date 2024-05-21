@@ -72,5 +72,14 @@ class TablaDatosEnvio:
         # Si el índice es inválido o el usuario no tiene datos de envío
         return False
 
+    def tiene_datos_envio(self) -> bool:
+        '''Metodo que verifica si el usuario tiene datos de envío
+
+        Returns:
+            bool: True si el usuario tiene datos de envío, False si no
+        '''        
+        # Obtener el ID del usuario actual
+        id_usuario = self.session.obtener_id_usuario()
+        return id_usuario in self.tabla_datos_envio
 
 #correo1@ejemplo

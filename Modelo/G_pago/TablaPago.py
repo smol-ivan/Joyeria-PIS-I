@@ -43,3 +43,14 @@ class TablaPago:
             self.__pagos[id_usuario].pop(tarjeta_seleccionada)
             return True
         return False
+    
+    def tiene_datos_pago(self) -> bool:
+        '''Este metodo verifica si el usuario tiene datos de pago
+
+        Returns:
+            bool: True si el usuario tiene datos de pago, False si no
+        '''        
+        id_usuario = self.session.obtener_id_usuario()
+        if id_usuario in self.__pagos:
+            return True
+        return False
