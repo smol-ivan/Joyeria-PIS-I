@@ -1,4 +1,5 @@
 from Controlador.Controller_Compra import Controller_Compra
+from Controlador.Controller_Compra import Controller_Compra
 
 class UI_Compra:
     '''Clase que despliega la interfaz de compras
