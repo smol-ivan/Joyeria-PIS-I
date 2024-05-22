@@ -14,8 +14,6 @@ class TablaCarritos:
             # Inicialización de la tabla de carritos
         return cls._instance
 
-
-
     def __init__ (self) -> None:
         self.carritos: list[Carrito] = []
 
