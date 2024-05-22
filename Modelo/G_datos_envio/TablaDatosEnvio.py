@@ -13,6 +13,18 @@ class TablaDatosEnvio:
         self.tabla_datos_envio = {}
         self.session = Session()
 
+    _instance = None
+
+    '''
+    Metodo que crea una instancia de la clase Session si no existe una ya creada.
+    En caso de que ya exista una instancia, regresa la instancia ya creada.
+    '''
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super().__new__(cls, *args, **kwargs)
+            # Inicialización de la sesión
+        return cls._instance
+
     '''
     Método que agrega un nuevo dato de envío
     '''
@@ -73,13 +85,17 @@ class TablaDatosEnvio:
         return False
 
     def tiene_datos_envio(self) -> bool:
-        '''Metodo que verifica si el usuario tiene datos de envío
 
-        Returns:
-            bool: True si el usuario tiene datos de envío, False si no
-        '''        
-        # Obtener el ID del usuario actual
-        id_usuario = self.session.obtener_id_usuario()
-        return id_usuario in self.tabla_datos_envio
+            '''Metodo que verifica si el usuario tiene datos de envío
+
+            Returns:
+                bool: True si el usuario tiene datos de envío, False si no
+            '''
+            # Obtener el ID del usuario actual
+            id_usuario = self.session.obtener_id_usuario()
+            if id_usuario in self.tabla_datos_envio:
+                return True
+            else:
+                return False
 
 #correo1@ejemplo

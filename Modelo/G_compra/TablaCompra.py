@@ -15,6 +15,7 @@ class TablaCompra:
         ]
         """
         self.init_test()
+
     
     def agregar_ticket(self, ticket: Ticket, identificador: int) -> None:
         '''Metodo que agrega un ticket a la tabla de compra
