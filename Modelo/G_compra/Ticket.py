@@ -42,7 +42,8 @@ class Ticket:
         '''        
         total: int = 0
         for producto in self.productos:
-            total += producto["precio"]
+            cantidad = producto["cantidad"]
+            total += producto["precio"] * cantidad
         return total
     
     def obtener_productos(self) -> list[dict[str: any]]:
@@ -59,4 +60,4 @@ class Ticket:
         Returns:
             str: Ticket en formato str
         '''        
-        return f"Ticket: {self.id_ticket} - {self.fecha} - {self.total}"
+        return f"Ticket: {self.id_ticket} - {self.fecha} - {self.obtener_total()}"
