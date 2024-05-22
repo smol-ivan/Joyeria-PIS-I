@@ -5,6 +5,9 @@ class Controller_Carrito:
     def __init__(self):
         self.carrito = GestorCarrito()
 
+    def solicitar_datos_agregar_producto(self) -> bool:
+        return True 
+
     def obtener_carrito(self) -> Carrito:
         '''Este metodo obtiene el carrito de compras
 

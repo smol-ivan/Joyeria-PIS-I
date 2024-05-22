@@ -40,6 +40,8 @@ class UI_Carrito:
         '''
         while True:
             print("\n--Agregar producto--\n")
+            if not self.controller.solicitar_datos_agregar_producto():
+                break
             id_producto = input("Ingrese el id del producto: ")
             cantidad = input("Ingrese la cantidad: ")
             if id_producto and cantidad:
