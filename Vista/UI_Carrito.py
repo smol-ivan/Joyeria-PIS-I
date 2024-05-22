@@ -1,9 +1,11 @@
 from Controlador.Controller_Carrito import Controller_Carrito
 from Modelo.G_carrito.Carrito import Carrito
+from Vista.UI_Compra import UI_Compra
 
 class UI_Carrito:
     def __init__(self) -> None:
         self.controller = Controller_Carrito()
+        self.compra = UI_Compra()
 
     def menu_carrito(self) -> None:
         while True:
@@ -81,4 +83,4 @@ class UI_Carrito:
     def realizar_pago(self) -> None:
         '''Este metodo dirige al usuario a la vista de pago
         '''        
-        pass
+        self.compra.menu_compra()
