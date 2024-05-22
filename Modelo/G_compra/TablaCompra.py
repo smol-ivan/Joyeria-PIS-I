@@ -39,12 +39,16 @@ class TablaCompra:
                 })
     
     def obtener_tickets(self) -> list[dict[int: list[Ticket]]]:
-        '''Metodo que obtiene los tickets de la tabla de compra
+        '''Metodo que obtiene todos los tickets de la tabla de compra
 
         Returns:
-            list[Ticket]: Tickets de la tabla de compra
+            list[Ticket]: Una lista de todos los tickets de cada usuario
         '''        
-        return self.tickets
+        array_tickets = []
+        for ticket in self.tickets:
+            for key in ticket:
+                array_tickets += ticket[key]
+        return array_tickets
     
     def init_test(self):
         '''Metodo que inicializa la tabla de compra con tickets de prueba
