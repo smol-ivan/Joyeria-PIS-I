@@ -14,6 +14,11 @@ class TablaCarritos:
             # Inicialización de la tabla de carritos
         return cls._instance
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0d22782 ("9:40")
     def __init__ (self) -> None:
         self.carritos: list[Carrito] = []
 
