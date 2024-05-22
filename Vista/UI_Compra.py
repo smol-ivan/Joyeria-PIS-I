@@ -11,6 +11,7 @@ class UI_Compra:
         while True:
             print("Sistema de Compras")
 <<<<<<< HEAD
+<<<<<<< HEAD
             print("1. Verificar Datos de Envío y Pago")
             print("2. Realizar Compra")
             print("3. Salir")
@@ -19,6 +20,11 @@ class UI_Compra:
             print("[2] Realizar Compra")
             print("[3] Salir")
 >>>>>>> 0d22782 ("9:40")
+=======
+            print("1. Verificar Datos de Envío y Pago")
+            print("2. Realizar Compra")
+            print("3. Salir")
+>>>>>>> 6c186a3 (fix)
 
             opcion = input("Seleccione una opción: ")
             if opcion == '1':
@@ -36,6 +42,7 @@ class UI_Compra:
         '''
         if self.controlador.puede_comprar():
 <<<<<<< HEAD
+<<<<<<< HEAD
             print("\nTienes los datos de envío y pago completos. Puedes realizar la compra.\n")
             print(self.controlador.puede_comprar())
         else:
@@ -46,6 +53,12 @@ class UI_Compra:
         else:
             print("No tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.")
 >>>>>>> 0d22782 ("9:40")
+=======
+            print("\nTienes los datos de envío y pago completos. Puedes realizar la compra.\n")
+            print(self.controlador.puede_comprar())
+        else:
+            print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")
+>>>>>>> 6c186a3 (fix)
 
     def realizar_compra(self):
         '''Método que realiza la compra
@@ -57,8 +70,12 @@ class UI_Compra:
                 print("\nNo se pudo realizar la compra.\n")
         else:
 <<<<<<< HEAD
+<<<<<<< HEAD
             print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")
 =======
             print("No tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.")
 >>>>>>> 0d22782 ("9:40")
+=======
+            print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")
+>>>>>>> 6c186a3 (fix)
 #1234567890123456

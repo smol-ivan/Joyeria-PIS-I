@@ -15,10 +15,13 @@ class TablaCarritos:
         return cls._instance
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> 0d22782 ("9:40")
+=======
+>>>>>>> 6c186a3 (fix)
     def __init__ (self) -> None:
         self.carritos: list[Carrito] = []
 
