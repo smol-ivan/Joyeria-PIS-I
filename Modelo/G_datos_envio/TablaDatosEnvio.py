@@ -2,6 +2,19 @@ from Modelo.G_usuario.Session import Session
 
 
 class TablaDatosEnvio:
+
+    _instance = None
+    
+    '''
+    Metodo que crea una instancia de la clase Session si no existe una ya creada.
+    En caso de que ya exista una instancia, regresa la instancia ya creada.
+    '''
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super().__new__(cls, *args, **kwargs)
+            # Inicialización de la sesión
+        return cls._instance
+    
     def __init__(self):
         '''
         Formato diccionario de datos de envío
@@ -12,18 +25,6 @@ class TablaDatosEnvio:
         '''
         self.tabla_datos_envio = {}
         self.session = Session()
-
-    _instance = None
-
-    '''
-    Metodo que crea una instancia de la clase Session si no existe una ya creada.
-    En caso de que ya exista una instancia, regresa la instancia ya creada.
-    '''
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super().__new__(cls, *args, **kwargs)
-            # Inicialización de la sesión
-        return cls._instance
 
     '''
     Método que agrega un nuevo dato de envío
@@ -41,8 +42,6 @@ class TablaDatosEnvio:
     def obtener_datos_envio(self):
         # Obtener el ID del usuario actual desde la sesión
         id_usuario = self.session.obtener_id_usuario()
-
-
         # Verificar si el usuario tiene datos de envío
         if id_usuario in self.tabla_datos_envio:
             return self.tabla_datos_envio[id_usuario]
@@ -85,7 +84,6 @@ class TablaDatosEnvio:
         return False
 
     def tiene_datos_envio(self) -> bool:
-
             '''Metodo que verifica si el usuario tiene datos de envío
 
             Returns:

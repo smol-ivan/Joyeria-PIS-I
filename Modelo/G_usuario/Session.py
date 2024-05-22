@@ -1,4 +1,5 @@
 from .Administrador import Administrador
+from .Usuario import Usuario
 
 class Session:
     _instance = None
@@ -14,18 +15,18 @@ class Session:
         return cls._instance
 
     def __init__(self):
-        self.usuario_autenticado = None
+        self.usuario_autenticado: Usuario = None
 
-    def iniciar_sesion(self, usuario):
+    def iniciar_sesion(self, usuario: Usuario):
         self.usuario_autenticado = usuario # instancia de Usuario
 
     def cerrar_sesion(self):
         self.usuario_autenticado = None
 
-    def obtener_usuario_autenticado(self):
+    def obtener_usuario_autenticado(self) -> Usuario:
         return self.usuario_autenticado
     
-    def obtener_id_usuario(self):
+    def obtener_id_usuario(self) -> int:
         return self.usuario_autenticado.get_id()
 
     def esta_autenticado(self):

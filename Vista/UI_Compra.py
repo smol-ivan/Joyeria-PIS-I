@@ -10,21 +10,9 @@ class UI_Compra:
     def menu_compra(self):
         while True:
             print("Sistema de Compras")
-<<<<<<< HEAD
-<<<<<<< HEAD
             print("1. Verificar Datos de Envío y Pago")
             print("2. Realizar Compra")
             print("3. Salir")
-=======
-            print("[1] Verificar Datos de Envío y Pago")
-            print("[2] Realizar Compra")
-            print("[3] Salir")
->>>>>>> 0d22782 ("9:40")
-=======
-            print("1. Verificar Datos de Envío y Pago")
-            print("2. Realizar Compra")
-            print("3. Salir")
->>>>>>> 6c186a3 (fix)
 
             opcion = input("Seleccione una opción: ")
             if opcion == '1':
@@ -41,24 +29,11 @@ class UI_Compra:
         '''Método que verifica si el usuario tiene datos de envío y de pago
         '''
         if self.controlador.puede_comprar():
-<<<<<<< HEAD
-<<<<<<< HEAD
             print("\nTienes los datos de envío y pago completos. Puedes realizar la compra.\n")
             print(self.controlador.puede_comprar())
         else:
             print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")
-=======
             print("Tienes los datos de envío y pago completos. Puedes realizar la compra.")
-            print(self.controlador.puede_comprar())
-        else:
-            print("No tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.")
->>>>>>> 0d22782 ("9:40")
-=======
-            print("\nTienes los datos de envío y pago completos. Puedes realizar la compra.\n")
-            print(self.controlador.puede_comprar())
-        else:
-            print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")
->>>>>>> 6c186a3 (fix)
 
     def realizar_compra(self):
         '''Método que realiza la compra
@@ -66,16 +41,26 @@ class UI_Compra:
         if self.controlador.puede_comprar():
             if self.controlador.realizar_compras():
                 print("\nCompra realizada con éxito.\n")
+                ticket = self.controlador.obtener_compra()
+                print("Ticket de Compra:")
+                print(ticket)
+                productos = ticket.obtener_productos()
+                print("Productos comprados:")
+                for producto in productos:
+                    string = ''
+                    string += producto['modelo']
+                    string += ' - '
+                    # Convertir int to string para concatenar con string
+                    precio = str(producto['precio'])
+                    string += precio
+                    cantidad = str(producto['cantidad'])
+                    string += ' - '
+                    string += cantidad
+                    string += '\n'
+                    print(string)
+                total = ticket.obtener_total()
+                print("Total: " + str(total))
             else:
                 print("\nNo se pudo realizar la compra.\n")
         else:
-<<<<<<< HEAD
-<<<<<<< HEAD
             print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")
-=======
-            print("No tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.")
->>>>>>> 0d22782 ("9:40")
-=======
-            print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")
->>>>>>> 6c186a3 (fix)
-#1234567890123456

@@ -25,3 +25,11 @@ class Controller_Compra:
             return True
         else:
             return False
+        
+    def obtener_compra(self):
+        '''Metodo que regresa el ultimo ticket guardado en la tabla de compras. En caso de no haber tickets guardados, regresa None.
+
+        Returns:
+            Ticket: Ultimo ticket guardado
+        '''        
+        return self.gestor_compra.obtener_compra()
