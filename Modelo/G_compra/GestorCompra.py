@@ -27,6 +27,7 @@ class GestorCompra:
 
     def solicitud_compra(self) -> bool:
         carrito: Carrito = self.obtener_carrito()
+        print("carrito: ", carrito)
         if not carrito:
             return False
         # Creacion del ticket

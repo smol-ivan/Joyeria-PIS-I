@@ -23,4 +23,5 @@ class Controller_Compra:
         '''
         if self.gestor_compra.solicitud_compra():
             return True
-        return False
+        else:
+            return False
