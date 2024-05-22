@@ -14,6 +14,7 @@ class GestorCompra:
         self.__id_ticket: int = 0
         self.tabla: TablaCompra = TablaCompra()
         self.session: Session = Session()
+        self.tabla_carritos: TablaCarritos = TablaCarritos()
         pass
 
     def obtener_carrito(self) -> Carrito:
@@ -22,11 +23,11 @@ class GestorCompra:
         Returns:
             Carrito: Ultimo carrito guardado
         '''        
-        tabla: TablaCarritos = TablaCarritos()
-        return tabla.obtener_ultimo_carrito()
+        return self.tabla_carritos.obtener_ultimo_carrito()
 
     def solicitud_compra(self) -> bool:
         carrito: Carrito = self.obtener_carrito()
+        print("carrito: ", carrito)
         if not carrito:
             return False
         # Creacion del ticket
@@ -34,10 +35,11 @@ class GestorCompra:
         fecha = datetime.datetime.now()
         ticket = Ticket(identificador, fecha)
         # Agregar productos al ticket que son sacados del carrito
-        for producto in carrito:
+        for producto in carrito.obtener_carrito():
             ticket.agregar_producto(producto['modelo'], producto['cantidad'], producto['precio'])
         # Guardar ticket
         id_usuario = self.session.obtener_id_usuario()
         self.tabla.agregar_ticket(ticket, id_usuario)
         # limpiar carrito de compra
+        self.tabla_carritos.eliminar_carrito()
         return True

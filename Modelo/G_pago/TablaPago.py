@@ -12,6 +12,18 @@ class TablaPago:
         self.__pagos = {}
         self.session = Session()
 
+    _instance = None
+
+    '''
+    Metodo que crea una instancia de la clase Session si no existe una ya creada.
+    En caso de que ya exista una instancia, regresa la instancia ya creada.
+    '''
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super().__new__(cls, *args, **kwargs)
+            # Inicialización de la sesión
+        return cls._instance
+
     def agregar_tarjeta(self, tarjeta):
         id_usuario = self.session.obtener_id_usuario()
         if id_usuario not in self.__pagos: # Si el usuario no tiene datos de envío
@@ -43,14 +55,15 @@ class TablaPago:
             self.__pagos[id_usuario].pop(tarjeta_seleccionada)
             return True
         return False
-    
+
     def tiene_datos_pago(self) -> bool:
         '''Este metodo verifica si el usuario tiene datos de pago
 
         Returns:
             bool: True si el usuario tiene datos de pago, False si no
-        '''        
+        '''
         id_usuario = self.session.obtener_id_usuario()
         if id_usuario in self.__pagos:
             return True
-        return False
+        else:
+            return False
