@@ -41,7 +41,7 @@ class GestorUsuario:
     Metodo que recibe los datos de registro de usuario y manda a la clase Autenticacion para validarlos
     '''
     def recibir_datos_registro_usuario(self, nombre, correo, contrasena):
-        if self.tabla_usuarios.obtener_usuario(correo, contrasena):
+        if self.tabla_usuarios.obtener_usuario():
             return False
         id_usuario = self.set_id()
         usuario = Miembro(nombre, correo, contrasena, id_usuario)
