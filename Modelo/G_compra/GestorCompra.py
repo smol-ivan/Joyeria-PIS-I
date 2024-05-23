@@ -25,7 +25,7 @@ class GestorCompra:
         '''        
         return self.tabla_carritos.obtener_ultimo_carrito()
 
-    def solicitud_compra(self) -> bool:
+    def solicitud_compra(self) -> Ticket:
         carrito: Carrito = self.obtener_carrito()
         print("carrito: ", carrito)
         if not carrito:
@@ -41,12 +41,4 @@ class GestorCompra:
         id_usuario = self.session.obtener_id_usuario()
         self.tabla.agregar_ticket(ticket, id_usuario)
         # limpiar carrito de compra
-        return True
-    
-    def obtener_compra(self) -> Ticket:
-        '''Metodo que regresa el ultimo ticket guardado en la tabla de compras. En caso de no haber tickets guardados, regresa None.
-
-        Returns:
-            Ticket: Ultimo ticket guardado
-        '''        
         return self.tabla.obtener_tickets()[-1]

@@ -39,28 +39,25 @@ class UI_Compra:
         '''Método que realiza la compra
         '''
         if self.controlador.puede_comprar():
-            if self.controlador.realizar_compras():
-                print("\nCompra realizada con éxito.\n")
-                ticket = self.controlador.obtener_compra()
-                print("Ticket de Compra:")
-                print(ticket)
-                productos = ticket.obtener_productos()
-                print("Productos comprados:")
-                for producto in productos:
-                    string = ''
-                    string += producto['modelo']
-                    string += ' - '
-                    # Convertir int to string para concatenar con string
-                    precio = str(producto['precio'])
-                    string += precio
-                    cantidad = str(producto['cantidad'])
-                    string += ' - '
-                    string += cantidad
-                    string += '\n'
-                    print(string)
-                total = ticket.obtener_total()
-                print("Total: " + str(total))
-            else:
-                print("\nNo se pudo realizar la compra.\n")
+            ticket = self.controlador.realizar_compras()
+            print("\nCompra realizada con éxito.\n")
+            print("Ticket de Compra:")
+            print(ticket)
+            productos = ticket.obtener_productos()
+            print("Productos comprados:")
+            for producto in productos:
+                string = ''
+                string += producto['modelo']
+                string += ' - '
+                # Convertir int to string para concatenar con string
+                precio = str(producto['precio'])
+                string += precio
+                cantidad = str(producto['cantidad'])
+                string += ' - '
+                string += cantidad
+                string += '\n'
+                print(string)
+            total = ticket.obtener_total()
+            print("Total: " + str(total))
         else:
             print("\nNo tienes datos de envío o de pago. Por favor, agrega datos antes de realizar la compra.\n")

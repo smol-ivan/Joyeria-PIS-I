@@ -2,6 +2,7 @@ from Modelo.G_compra.GestorCompra import GestorCompra
 from Modelo.G_datos_envio.TablaDatosEnvio import TablaDatosEnvio
 from Modelo.G_pago.TablaPago import TablaPago
 from Modelo.G_carrito.GestorCarrito import GestorCarrito
+from Modelo.G_compra.Ticket import Ticket
 
 class Controller_Compra:
     def __init__(self) -> None:
@@ -18,18 +19,7 @@ class Controller_Compra:
         '''        
         return self.tabla_datos_envio.tiene_datos_envio() and self.tabla_pago.tiene_datos_pago()   
     
-    def realizar_compras(self) -> bool:
+    def realizar_compras(self) -> Ticket:
         '''Solicutid al gestor de compra que realice la compra
         '''
-        if self.gestor_compra.solicitud_compra():
-            return True
-        else:
-            return False
-        
-    def obtener_compra(self):
-        '''Metodo que regresa el ultimo ticket guardado en la tabla de compras. En caso de no haber tickets guardados, regresa None.
-
-        Returns:
-            Ticket: Ultimo ticket guardado
-        '''        
-        return self.gestor_compra.obtener_compra()
+        return self.gestor_compra.realizar_compra()
